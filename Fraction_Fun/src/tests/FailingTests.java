@@ -1,6 +1,7 @@
 package tests;
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -11,19 +12,23 @@ public class FailingTests {
 	
 	private static Board board;
 
-	@BeforeClass
+	@Before
 	public void initialize(){
 		board = new Board();
 		board.initialize();
 	}
 	
+	// Test makes sure the human Player moves correctly
 	@Test
 	public void playerMovesOneForward() {
-		Player player = new Player();
-		player.move();
-		assertEquals(board.getCurrentPlayer().getLocation(), )
+		Player humanPlayer = new Player();
+		humanPlayer.move();
+		assertEquals(1, humanPlayer.getLocation());	//Player started at 0 and moved once, so should be at location 1
+		humanPlayer.move();
+		assertEquals(2, humanPlayer.getLocation());	// PLayer moved again, so now should be at location 2
 	}
 	
+	// Tests make sure the computer players move as expected
 	@Test
 	public void CPUMovesCorrectly(){
 		
