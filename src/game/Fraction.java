@@ -1,8 +1,8 @@
 package game;
 
 public class Fraction {
-	private int numerator;
-	private int denominator;
+	protected int numerator;
+	protected int denominator;
 	
 	public Fraction(int num, int den) {
 		numerator = num;
