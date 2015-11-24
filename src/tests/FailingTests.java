@@ -165,7 +165,12 @@ public class FailingTests {
 	
 	@Test
 	public void TestCore5(){
-		
+		 Fraction core5Fraction1 = new Fraction(2,10);
+		 Fraction core5Fraction2 = new Fraction(5,100);
+		 Fraction core5FractionSolution = new Fraction(9,100);
+		 assertTrue((core5Fraction1.getNumerator() / core5Fraction1.getDenominator()) 
+				+ (core5Fraction2.getNumerator() / core5Fraction2.getDenominator()) 
+				== core5FractionSolution.getNumerator() / core5FractionSolution.getDenominator());
 	}
 
 }
