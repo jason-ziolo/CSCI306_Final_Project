@@ -6,6 +6,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import game.Board;
+import game.Fraction;
 import game.Player;
 
 public class FailingTests {
@@ -16,6 +17,17 @@ public class FailingTests {
 	public void initialize(){
 		board = new Board();
 		board.initialize();
+	}
+	
+	@Test(expected=Exception.class)
+	public void testDivByZeroException() {
+		new Fraction(5, 0);
+	}
+	
+	@Test(expected=Exception.class)
+	public void testDivByZeroException_2() {
+		Fraction badFrac = new Fraction(5, 2);
+		badFrac.setDenominator(0);
 	}
 	
 	// Test makes sure the human Player moves correctly
@@ -31,8 +43,7 @@ public class FailingTests {
 	// Tests make sure the computer players move as expected
 	@Test
 	public void CPUMovesCorrectly(){
-		Fraction
-		boolean correct = false;
+		//boolean correct = false;
 		
 	}
 	
