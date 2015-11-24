@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class Board {
 	private LinkedList<Player> players;
-	private Fraction currentProblem;
+	private Problem currentProblem;
 	private boolean answerRight;
 	
 	public Board(){
@@ -39,11 +39,11 @@ public class Board {
 		this.answerRight = answerRight;
 	}
 
-	public Fraction getCurrentProblem() {
+	public Problem getCurrentProblem() {
 		return currentProblem;
 	}
 
-	public void setCurrentProblem(Fraction currentProblem) {
+	public void setCurrentProblem(Problem currentProblem) {
 		this.currentProblem = currentProblem;
 	}
 }
