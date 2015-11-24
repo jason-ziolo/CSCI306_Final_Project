@@ -6,6 +6,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import game.Board;
+import game.Fraction;
 import game.Player;
 
 public class FailingTests {
@@ -48,6 +49,10 @@ public class FailingTests {
 	
 	@Test
 	public void TestCore2(){
+		Fraction core2Fraction1 = new Fraction(1,2);
+		Fraction core2Fraction2 = new Fraction(3,4);
+		assertTrue(core2Fraction1.getNumerator() / core2Fraction1.getDenominator() 
+				== core2Fraction2.getNumerator() / core2Fraction2.getDenominator());
 		
 	}
 	
