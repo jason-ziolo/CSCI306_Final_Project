@@ -4,9 +4,11 @@ import java.util.LinkedList;
 
 public class Board {
 	private LinkedList<Player> players;
-	private Player currentPlayer;
 	private Fraction currentProblem;
 	
+	public Board(){
+		
+	}
 	
 	public void initialize(){
 		
@@ -15,13 +17,9 @@ public class Board {
 	public void movePlayer(){
 		
 	}
-
-	public Player getCurrentPlayer() {
-		return currentPlayer;
-	}
-
-	public void setCurrentPlayer(Player currentPlayer) {
-		this.currentPlayer = currentPlayer;
+	
+	public boolean checkAnswer(){
+		return false;
 	}
 
 	public LinkedList<Player> getPlayers() {

@@ -31,6 +31,8 @@ public class FailingTests {
 	// Tests make sure the computer players move as expected
 	@Test
 	public void CPUMovesCorrectly(){
+		Fraction
+		boolean correct = false;
 		
 	}
 	

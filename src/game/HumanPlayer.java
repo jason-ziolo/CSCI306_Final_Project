@@ -1,5 +1,6 @@
 package game;
 
-public class HumanPlayer {
+public class HumanPlayer extends Player{
 
+	public HumanPlayer(){}
 }
