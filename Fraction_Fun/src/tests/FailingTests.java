@@ -5,6 +5,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import game.Board;
+import game.Player;
 
 public class FailingTests {
 	
@@ -17,9 +18,9 @@ public class FailingTests {
 	}
 	
 	@Test
-	public void PlayerMovesOneForward() {
-		board.setCurrentPlayer(board.getPlayers().get(0));
-		board.movePlayer();
+	public void playerMovesOneForward() {
+		Player player = new Player();
+		player.move();
 		assertEquals(board.getCurrentPlayer().getLocation(), )
 	}
 	
@@ -29,7 +30,7 @@ public class FailingTests {
 	}
 	
 	@Test
-	public void GameEndsRight(){
+	public void gameEndsRight(){
 		
 	}
 	
