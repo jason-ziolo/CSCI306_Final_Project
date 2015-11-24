@@ -6,6 +6,7 @@ public class Board {
 	private LinkedList<Player> players;
 	private Problem currentProblem;
 	private boolean answerRight;
+	public final int MAX_SIZE = 5;
 	
 	public Board(){
 		
@@ -17,6 +18,10 @@ public class Board {
 	
 	public void movePlayer(){
 		
+	}
+	
+	public boolean checkOver(){
+		return false;
 	}
 	
 	public boolean checkAnswer(){
