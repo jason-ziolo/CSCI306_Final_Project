@@ -144,7 +144,7 @@ public class FailingTests {
 		Fraction core2Fraction5 = new Fraction(2,3);
 		Fraction core2Fraction6 = new Fraction(1,4);
 		assertTrue(core2Fraction5.getNumerator() / core2Fraction5.getDenominator() 
-				== core2Fraction6.getNumerator() / core2Fraction6.getDenominator());
+				> core2Fraction6.getNumerator() / core2Fraction6.getDenominator());
 		
 	}
 	
