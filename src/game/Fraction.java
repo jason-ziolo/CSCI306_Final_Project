@@ -1,6 +1,7 @@
 package game;
 
 public class Fraction {
+	public final static double TOLERANCE = 0.0001;
 	protected int numerator;
 	protected int denominator;
 	
@@ -9,9 +10,18 @@ public class Fraction {
 		denominator = den;
 	}
 	
-	private double getValue() {
+	public double getValue() {
 		return 0.0; //TODO
 	}
+	
+	/*public boolean equals(Fraction fraction) {
+		if ((this.getValue() - fraction.getValue()) < TOLERANCE) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}*/
 	
 	public boolean equals(Fraction fraction) {
 		if (this.getNumerator()*fraction.getDenominator() == this.getDenominator()*fraction.getNumerator()) {
@@ -22,6 +32,15 @@ public class Fraction {
 		}
 	}
 
+	public boolean equals(MixedNumber mixed) {
+		if ((this.getValue() - mixed.getValue()) < TOLERANCE) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
 	public int getNumerator() {
 		return numerator;
 	}
@@ -113,5 +132,9 @@ public class Fraction {
 	public Fraction intMultiplication(int wholeNumber) {
 		this.setNumerator(this.getNumerator()*wholeNumber);
 		return this;
+	}
+	
+	public Fraction multiply(int factor) {
+		return null; // TODO	
 	}
 }
