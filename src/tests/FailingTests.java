@@ -7,10 +7,7 @@ import org.junit.Test;
 
 import game.Board;
 import game.Fraction;
-<<<<<<< HEAD
-=======
 import game.ProblemType;
->>>>>>> 4bb86f3ae9c6513109e96ee5e98d23cbbc77f51e
 import game.Player;
 import game.Problem;
 
@@ -128,7 +125,12 @@ public class FailingTests {
 	
 	@Test
 	public void TestCore1(){
-		
+		Fraction core1Fraction1 = new Fraction(1, 2);
+		Fraction core1Fraction2 = new Fraction(6, 12);
+		Fraction core1Fraction3 = new Fraction(3, 4);
+		assertTrue(core1Fraction1.getNumerator()*core1Fraction2.getDenominator() == core1Fraction1.getDenominator()*core1Fraction2.getNumerator());
+		assertTrue(core1Fraction1.equals(core1Fraction2));
+		assertFalse(core1Fraction1.equals(core1Fraction3));
 	}
 	
 	@Test
@@ -150,7 +152,19 @@ public class FailingTests {
 	
 	@Test
 	public void TestCore3b(){
+		Fraction core3bFraction1 = new Fraction(1, 4);
+		Fraction core3bFraction2 = new Fraction(2, 8);
+		Fraction core3bFraction3 = new Fraction(3, 8);
+		Fraction core3bFraction4 = new Fraction(7, 8);
 		
+		assertFalse(core3bFraction1.commonDenominator(core3bFraction2));
+		assertTrue(core3bFraction2.commonDenominator(core3bFraction3));
+		assertEquals(core3bFraction1.leastCommonDenominator(core3bFraction2), 8);
+		assertTrue(core3bFraction1.changeDenomiator(core3bFraction1.leastCommonDenominator(core3bFraction2)).equals(core3bFraction2));
+		
+		Fraction testAddition = core3bFraction1.addition(core3bFraction2.addition(core3bFraction3));
+		System.out.println(testAddition.getNumerator() + " " + testAddition.getDenominator());
+		assertTrue(core3bFraction1.addition(core3bFraction2.addition(core3bFraction3)).equals(core3bFraction4));
 	}
 	
 	@Test

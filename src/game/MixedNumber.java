@@ -13,9 +13,9 @@ public class MixedNumber extends Fraction {
 	}
 	
 	@Override
-	public boolean equals(Fraction other) {
+	/*public boolean equals(Fraction other) {
 		return false; //TODO
-	}
+	}*/
 
 	public int getWholeNumber() {
 		return wholeNumber;
