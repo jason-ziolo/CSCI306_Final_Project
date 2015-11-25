@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import game.Board;
 import game.Fraction;
+import game.MixedNumber;
 import game.ProblemType;
 import game.Player;
 import game.Problem;
@@ -156,25 +157,47 @@ public class FailingTests {
 		Fraction core3bFraction2 = new Fraction(2, 8);
 		Fraction core3bFraction3 = new Fraction(3, 8);
 		Fraction core3bFraction4 = new Fraction(7, 8);
-		
+
 		assertFalse(core3bFraction1.commonDenominator(core3bFraction2));
 		assertTrue(core3bFraction2.commonDenominator(core3bFraction3));
 		assertEquals(core3bFraction1.leastCommonDenominator(core3bFraction2), 8);
 		assertTrue(core3bFraction1.changeDenomiator(core3bFraction1.leastCommonDenominator(core3bFraction2)).equals(core3bFraction2));
-		
-		Fraction testAddition = core3bFraction1.addition(core3bFraction2.addition(core3bFraction3));
-		System.out.println(testAddition.getNumerator() + " " + testAddition.getDenominator());
 		assertTrue(core3bFraction1.addition(core3bFraction2.addition(core3bFraction3)).equals(core3bFraction4));
 	}
 	
 	@Test
 	public void TestCore3c(){
+		MixedNumber core3cMixed1 = new MixedNumber(1, 8, 0);
+		MixedNumber core3cMixed2 = new MixedNumber(2, 4, 1);
+		MixedNumber core3cMixed3 = new MixedNumber(5, 8, 1);
+		MixedNumber core3cMixed4 = new MixedNumber(3, 6, 2);
+		MixedNumber core3cMixed5 = new MixedNumber(0, 12, 4);
 		
+		Fraction core3cFraction1 = core3cMixed1.toFraction();
+		Fraction core3cFraction2 = core3cMixed2.toFraction();
+		Fraction core3cFraction3 = core3cMixed3.toFraction();
+		Fraction core3cFraction4 = core3cMixed4.toFraction();
+		Fraction core3cFraction5 = core3cMixed5.toFraction();
+		
+		Fraction testResult1 = core3cFraction1.addition(core3cFraction2);
+		Fraction testResult2 = core3cFraction2.addition(core3cFraction4);
+
+		assertTrue(testResult1.equals(core3cFraction3));
+		assertTrue(testResult1.toMixedNumber().equalsMixedNumber(core3cMixed3));
+		assertTrue(testResult2.equals(core3cFraction5));
+		assertTrue(testResult2.toMixedNumber().equalsMixedNumber(core3cMixed5));
 	}
 	
 	@Test
 	public void TestCore4(){
+		int wholeNumber = 2;
+		Fraction core4Fraction1 = new Fraction(17, 8);
+		Fraction core4Fraction2 = new Fraction(34, 8);
+		MixedNumber core4Mixed1 = new MixedNumber(core4Fraction1.getNumerator() % core4Fraction1.getDenominator(), core4Fraction1.getDenominator(), wholeNumber);
 		
+		assertTrue(core4Fraction1.toMixedNumber().equalsMixedNumber(core4Mixed1));
+		assertTrue(core4Mixed1.toFraction().equals(core4Fraction1));
+		assertTrue(core4Fraction1.intMultiplication(wholeNumber).equals(core4Fraction2));
 	}
 	
 	@Test

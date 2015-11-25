@@ -38,11 +38,6 @@ public class Fraction {
 		this.denominator = denominator;
 	}
 
-	public int getWholeNumber() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 	public boolean commonDenominator(Fraction fraction) {
 		if (this.getDenominator() == fraction.getDenominator()) {
 			return true;
@@ -89,10 +84,34 @@ public class Fraction {
 			return this;
 		}
 		else {
-			this.changeDenomiator(fraction.getDenominator());
-			this.addition(fraction);
-			System.out.println("Wrong");
-			return null;
+			int lcd = this.leastCommonDenominator(fraction);
+			this.changeDenomiator(lcd);
+			fraction.changeDenomiator(lcd);
+			this.setNumerator(this.getNumerator() + fraction.getNumerator());
+			this.setDenominator(this.getDenominator());
+			return this;
 		}
+	}
+
+	public MixedNumber toMixedNumber() {
+		int numerator = this.getNumerator() % this.getDenominator();
+		if (this.getNumerator() > this.getDenominator()) {
+			MixedNumber result = new MixedNumber(numerator, this.getDenominator(),(this.getNumerator() - numerator) / this.denominator);
+			return result;
+		}
+		else if (this.getNumerator() < this.getDenominator()) {
+			MixedNumber result = new MixedNumber(this.getNumerator(), this.getDenominator(),0);
+			return result;
+		}
+		else if (this.getNumerator() == this.getDenominator()) {
+			MixedNumber result = new MixedNumber(1, 1, 0);
+			return result;
+		}
+		return null;
+	}
+
+	public Fraction intMultiplication(int wholeNumber) {
+		this.setNumerator(this.getNumerator()*wholeNumber);
+		return this;
 	}
 }
