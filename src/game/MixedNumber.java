@@ -8,14 +8,27 @@ public class MixedNumber extends Fraction {
 		wholeNumber = wholeNumber;
 	}
 	
-	private double getValue() {
+	public double getValue() {
 		return 0.0; //TODO
 	}
-	
-	@Override
-	/*public boolean equals(Fraction other) {
-		return false; //TODO
-	}*/
+
+	public boolean equals(Fraction fraction) {
+		if ((this.getValue() - fraction.getValue()) < TOLERANCE) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	public boolean equals(MixedNumber mixed) {
+		if ((this.getValue() - mixed.getValue()) < TOLERANCE) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 	public int getWholeNumber() {
 		return wholeNumber;

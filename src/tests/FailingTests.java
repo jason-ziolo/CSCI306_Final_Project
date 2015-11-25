@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import game.Board;
 import game.Fraction;
+import game.MixedNumber;
 import game.ProblemType;
 import game.Player;
 import game.Problem;
@@ -21,11 +22,13 @@ public class FailingTests {
 		board.initialize();
 	}
 	
+	// Test that initializing a fraction with a denominator of zero results in an exception
 	@Test(expected=Exception.class)
 	public void testDivByZeroException() {
 		new Fraction(5, 0);
 	}
 	
+	// Test that setting the denominator of a fraction results in an exception
 	@Test(expected=Exception.class)
 	public void testDivByZeroException_2() {
 		Fraction badFrac = new Fraction(5, 2);
@@ -169,22 +172,30 @@ public class FailingTests {
 	
 	@Test
 	public void TestCore3c(){
-		
+		// MixedNumber to Fraction
+		MixedNumber core3cMixedNumber = new MixedNumber(3, 4, 5);
+		Fraction core3cFraction = new Fraction(23, 4);
+		Fraction core3cFractionWrong = new Fraction(1, 4);
+		assertTrue(core3cMixedNumber.equals(core3cFraction));
+		assertTrue(core3cFraction.equals(core3cMixedNumber));
+		assertFalse(core3cMixedNumber.equals(core3cFractionWrong));
 	}
 	
 	@Test
 	public void TestCore4(){
-		
+		Fraction core4Fraction1 = new Fraction(3, 4);
+		Fraction core4FractionSolution = new Fraction(18, 4);
+		assertTrue(core4Fraction1.multiply(6).equals(core4FractionSolution));
 	}
 	
 	@Test
 	public void TestCore5(){
 		 Fraction core5Fraction1 = new Fraction(2,10);
-		 Fraction core5Fraction2 = new Fraction(5,100);
-		 Fraction core5FractionSolution = new Fraction(9,100);
-		 assertTrue((core5Fraction1.getNumerator() / core5Fraction1.getDenominator()) 
-				+ (core5Fraction2.getNumerator() / core5Fraction2.getDenominator()) 
-				== core5FractionSolution.getNumerator() / core5FractionSolution.getDenominator());
+		 Fraction core5Fraction2 = new Fraction(20,100);
+		 Fraction core5Fraction3 = new Fraction(5,100);
+		 Fraction core5FractionSolution = new Fraction(25,100);
+		 assertTrue(core5Fraction1.equals(core5Fraction2));
+		 assertTrue(core5Fraction1.addition(core5Fraction3).equals(core5FractionSolution));
 	}
 
 }

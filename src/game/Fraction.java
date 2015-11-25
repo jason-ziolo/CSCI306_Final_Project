@@ -1,6 +1,7 @@
 package game;
 
 public class Fraction {
+	public final static double TOLERANCE = 0.0001;
 	protected int numerator;
 	protected int denominator;
 	
@@ -9,12 +10,12 @@ public class Fraction {
 		denominator = den;
 	}
 	
-	private double getValue() {
+	public double getValue() {
 		return 0.0; //TODO
 	}
 	
 	public boolean equals(Fraction fraction) {
-		if (this.getNumerator()*fraction.getDenominator() == this.getDenominator()*fraction.getNumerator()) {
+		if ((this.getValue() - fraction.getValue()) < TOLERANCE) {
 			return true;
 		}
 		else {
@@ -22,6 +23,15 @@ public class Fraction {
 		}
 	}
 
+	public boolean equals(MixedNumber mixed) {
+		if ((this.getValue() - mixed.getValue()) < TOLERANCE) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
 	public int getNumerator() {
 		return numerator;
 	}
@@ -36,11 +46,6 @@ public class Fraction {
 
 	public void setDenominator(int denominator) {
 		this.denominator = denominator;
-	}
-
-	public int getWholeNumber() {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 	public boolean commonDenominator(Fraction fraction) {
@@ -89,10 +94,16 @@ public class Fraction {
 			return this;
 		}
 		else {
+			/* TODO
 			this.changeDenomiator(fraction.getDenominator());
 			this.addition(fraction);
 			System.out.println("Wrong");
+			*/
 			return null;
 		}
+	}
+	
+	public Fraction multiply(int factor) {
+		return null; // TODO	
 	}
 }
