@@ -3,4 +3,5 @@
 .classpath
 .settings
 .metadata
+Thumbs.db
 bin/
