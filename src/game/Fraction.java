@@ -8,6 +8,13 @@ public class Fraction {
 	public Fraction(int num, int den) {
 		numerator = num;
 		denominator = den;
+		if (denominator == 0)
+			try {
+				throw new ZeroDenominator();
+			} catch (ZeroDenominator e) {
+				System.out.println("Can't intialize a denominator to 0, defaulted to 1.");
+				denominator = 1;
+			}
 	}
 	
 	public double getValue() {
@@ -41,6 +48,10 @@ public class Fraction {
 		}
 	}
 	
+	public double getFraction(){
+		return (double)numerator / (double) denominator;
+	}
+	
 	public int getNumerator() {
 		return numerator;
 	}
@@ -54,7 +65,16 @@ public class Fraction {
 	}
 
 	public void setDenominator(int denominator) {
-		this.denominator = denominator;
+		if (denominator == 0){
+			try {
+				throw new ZeroDenominator();
+			} catch (ZeroDenominator e) {
+				System.out.println(e.getMessage());
+				System.out.println("Denominator remains " + this.getDenominator());
+			}
+		} else {
+			this.denominator = denominator;
+		}
 	}
 
 	public boolean commonDenominator(Fraction fraction) {

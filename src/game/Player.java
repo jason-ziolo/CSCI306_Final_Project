@@ -16,7 +16,7 @@ public class Player {
 	}
 	
 	public void move(){
-		
+		location++;
 	}
 
 	public int getLocation() {

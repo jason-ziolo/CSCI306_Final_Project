@@ -140,16 +140,15 @@ public class FailingTests {
 	public void TestCore2(){
 		Fraction core2Fraction1 = new Fraction(1,2);
 		Fraction core2Fraction2 = new Fraction(2,4);
-		assertTrue(core2Fraction1.getNumerator() / core2Fraction1.getDenominator() 
-				== core2Fraction2.getNumerator() / core2Fraction2.getDenominator());
+		assertTrue(core2Fraction1.getFraction() == core2Fraction2.getFraction());
+		
 		Fraction core2Fraction3 = new Fraction(1,5);
 		Fraction core2Fraction4 = new Fraction(3,4);
-		assertTrue(core2Fraction3.getNumerator() / core2Fraction3.getDenominator() 
-				< core2Fraction4.getNumerator() / core2Fraction4.getDenominator());
+		assertTrue((core2Fraction3.getFraction() < core2Fraction4.getFraction()));
+		
 		Fraction core2Fraction5 = new Fraction(2,3);
 		Fraction core2Fraction6 = new Fraction(1,4);
-		assertTrue(core2Fraction5.getNumerator() / core2Fraction5.getDenominator() 
-				> core2Fraction6.getNumerator() / core2Fraction6.getDenominator());
+		assertTrue(core2Fraction5.getFraction() > core2Fraction6.getFraction());
 		
 	}
 	
