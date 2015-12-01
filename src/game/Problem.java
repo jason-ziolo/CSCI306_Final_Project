@@ -10,6 +10,8 @@ import java.util.LinkedList;
  */
 public abstract class Problem {
 	protected LinkedList<Fraction> fractions = new LinkedList<Fraction>();
+	protected int answer;
+	protected int expectedAnswer;
 	
 	public Problem() {
 	}
@@ -19,12 +21,8 @@ public abstract class Problem {
 	public abstract void advanceComputer(LinkedList<Player> players);
 
 	public boolean isCorrect() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public boolean isCorrect(int answer) {
-		// TODO Auto-generated method stub
+		if(answer == expectedAnswer)
+			return true;
 		return false;
 	}
 }

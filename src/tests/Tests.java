@@ -54,7 +54,7 @@ public class Tests {
 	@Test
 	public void CPUMovesCorrectly() throws ZeroDenomException{
 		Core1Problem fraction1 = new Core1Problem();
-		fraction1.setAnswer(5);
+		fraction1.setAnswer(fraction1.getExpectedAnswer());
 		board.setCurrentProblem(fraction1);
 		board.movePlayer();
 		assertEquals(1, board.getPlayers().get(0).getLocation());	//Make sure the correct CPU moved

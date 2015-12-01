@@ -28,13 +28,6 @@ public class Core1Problem extends Problem {
 	public void draw() {
 		// TODO Auto-generated method stub
 	}
-	
-	@Override
-	public boolean isCorrect() {
-		if(answer == expectedAnswer)
-			return true;
-		return false;
-	}
 
 	@Override
 	public void advanceComputer(LinkedList<Player> players) {
