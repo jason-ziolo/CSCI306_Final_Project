@@ -1,5 +1,6 @@
 package game;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.LinkedList;
 
@@ -9,7 +10,8 @@ public class Board extends JPanel{
 	private LinkedList<Player> players;
 	private Problem currentProblem;
 	private boolean answerRight;
-	public final int MAX_SIZE = 5;
+	public static final int MAX_SIZE = 5;
+	public static int distance;
 	
 	public Board(){
 		players = new LinkedList<Player>();
@@ -24,6 +26,7 @@ public class Board extends JPanel{
 		players.add(CPU1);
 		players.add(CPU2);
 		players.add(CPU3);
+		distance = Game.SIZE / MAX_SIZE;
 	}
 	
 	public void movePlayer(){
@@ -48,8 +51,19 @@ public class Board extends JPanel{
 	
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
+		for (Player player : players){
+			player.draw(g);
+		}
+		g.setColor(Color.BLACK);
+		for (int i = 0; i < MAX_SIZE; i++){
+			for (int j = 0; j < players.size(); j++){
+				g.drawOval(i * distance ,j * distance, distance * 4 / 5, distance * 4 / 5);
+			}
+		}
 	}
+	
 	public boolean checkAnswer(){
+		//TODO
 		return false;
 	}
 
