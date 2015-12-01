@@ -2,7 +2,6 @@ package tests;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import game.Board;
@@ -109,16 +108,16 @@ public class FailingTests {
 	@Test
 	public void gameEndsRight(){
 		//Make sure the game ends when ANY player is at the end
-		board.getPlayers().get(0).setLocation(board.MAX_SIZE);
+		board.getPlayers().get(0).setLocation(Board.MAX_SIZE);
 		assertTrue(board.checkOver());
 		board.getPlayers().get(0).setLocation(0);
-		board.getPlayers().get(1).setLocation(board.MAX_SIZE);
+		board.getPlayers().get(1).setLocation(Board.MAX_SIZE);
 		assertTrue(board.checkOver());
 		board.getPlayers().get(1).setLocation(0);
-		board.getPlayers().get(2).setLocation(board.MAX_SIZE);
+		board.getPlayers().get(2).setLocation(Board.MAX_SIZE);
 		assertTrue(board.checkOver());
 		board.getPlayers().get(2).setLocation(0);
-		board.getPlayers().get(3).setLocation(board.MAX_SIZE);
+		board.getPlayers().get(3).setLocation(Board.MAX_SIZE);
 		assertTrue(board.checkOver());
 		// Make sure the game doesn't end if no one is at the end
 		board.getPlayers().get(3).setLocation(0);

@@ -6,6 +6,7 @@ import java.util.LinkedList;
 
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class Board extends JPanel{
 	private LinkedList<Player> players;
 	private Problem currentProblem;
@@ -15,13 +16,14 @@ public class Board extends JPanel{
 	
 	public Board(){
 		players = new LinkedList<Player>();
+		initialize();
 	}
 	
 	public void initialize(){
 		HumanPlayer humanPlayer = new HumanPlayer();
-		ComputerPlayer CPU1 = new ComputerPlayer();
-		ComputerPlayer CPU2 = new ComputerPlayer();
-		ComputerPlayer CPU3 = new ComputerPlayer();
+		ComputerPlayer CPU1 = new ComputerPlayer(Color.BLUE);
+		ComputerPlayer CPU2 = new ComputerPlayer(Color.GREEN);
+		ComputerPlayer CPU3 = new ComputerPlayer(Color.MAGENTA);
 		players.add(humanPlayer);
 		players.add(CPU1);
 		players.add(CPU2);
