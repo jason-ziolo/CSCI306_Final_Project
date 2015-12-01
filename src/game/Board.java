@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class Board extends JPanel{
-	private LinkedList<Player> players;
+	private static LinkedList<Player> players;
 	private Problem currentProblem;
 	private boolean answerRight;
 	public static final int MAX_SIZE = 5;
@@ -57,7 +57,7 @@ public class Board extends JPanel{
 			player.draw(g);
 		}
 		g.setColor(Color.BLACK);
-		for (int i = 0; i < MAX_SIZE; i++){
+		for (int i = 0; i < MAX_SIZE + 1; i++){
 			for (int j = 0; j < players.size(); j++){
 				g.drawOval(i * distance ,j * distance, distance * 4 / 5, distance * 4 / 5);
 			}
@@ -69,7 +69,7 @@ public class Board extends JPanel{
 		return false;
 	}
 
-	public LinkedList<Player> getPlayers() {
+	public static LinkedList<Player> getPlayers() {
 		return players;
 	}
 

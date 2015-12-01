@@ -21,6 +21,7 @@ public class DisplayPanel extends JPanel{
 	public class ButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			System.out.println("Button Pressed");
+			Board.getPlayers().get(0).move();
 		}
 	}
 }
