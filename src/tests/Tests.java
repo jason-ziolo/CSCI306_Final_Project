@@ -188,9 +188,9 @@ public class Tests {
 		Fraction testResult2 = core3cFraction2.addition(core3cFraction4);
 
 		assertTrue(testResult1.equals(core3cFraction3));
-		assertTrue(testResult1.toMixedNumber().equalsMixedNumber(core3cMixed3));
+		assertTrue(testResult1.equals(core3cMixed3));
 		assertTrue(testResult2.equals(core3cFraction5));
-		assertTrue(testResult2.toMixedNumber().equalsMixedNumber(core3cMixed5));
+		assertTrue(testResult2.equals(core3cMixed5));
 	}
 	
 	@Test
@@ -200,8 +200,8 @@ public class Tests {
 		Fraction core4Fraction2 = new Fraction(34, 8);
 		MixedNumber core4Mixed1 = new MixedNumber(core4Fraction1.getNumerator() % core4Fraction1.getDenominator(), core4Fraction1.getDenominator(), wholeNumber);
 		
-		assertTrue(core4Fraction1.toMixedNumber().equalsMixedNumber(core4Mixed1));
-		assertTrue(core4Mixed1.toFraction().equals(core4Fraction1));
+		assertTrue(core4Fraction1.equals(core4Mixed1));
+		assertTrue(core4Mixed1.equals(core4Fraction1));
 		assertTrue(core4Fraction1.intMultiplication(wholeNumber).equals(core4Fraction2));
 	}
 	
