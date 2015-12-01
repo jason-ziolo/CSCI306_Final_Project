@@ -5,16 +5,11 @@ public class Fraction {
 	protected int numerator;
 	protected int denominator;
 	
-	public Fraction(int num, int den) {
+	public Fraction(int num, int den) throws ZeroDenomException {
 		numerator = num;
 		denominator = den;
 		if (denominator == 0)
-			try {
-				throw new ZeroDenominator();
-			} catch (ZeroDenominator e) {
-				System.out.println("Can't intialize a denominator to 0, defaulted to 1.");
-				denominator = 1;
-			}
+			throw new ZeroDenomException();
 	}
 	
 	public double getValue() {
@@ -64,17 +59,11 @@ public class Fraction {
 		return denominator;
 	}
 
-	public void setDenominator(int denominator) {
+	public void setDenominator(int denominator) throws ZeroDenomException {
 		if (denominator == 0){
-			try {
-				throw new ZeroDenominator();
-			} catch (ZeroDenominator e) {
-				System.out.println(e.getMessage());
-				System.out.println("Denominator remains " + this.getDenominator());
-			}
-		} else {
-			this.denominator = denominator;
+			throw new ZeroDenomException();
 		}
+		this.denominator = denominator;
 	}
 
 	public boolean commonDenominator(Fraction fraction) {
@@ -109,14 +98,14 @@ public class Fraction {
 		return 0;
 	}
 
-	public Fraction changeDenomiator(int denominator) {
+	public Fraction changeDenomiator(int denominator) throws ZeroDenomException {
 		int n = denominator / this.getDenominator();
 		this.setNumerator(this.getNumerator()*n);
 		this.setDenominator(this.getDenominator()*n);
 		return this;
 	}
 
-	public Fraction addition(Fraction fraction) {
+	public Fraction addition(Fraction fraction) throws ZeroDenomException {
 		if (this.denominator == fraction.denominator) {
 			this.setNumerator(this.getNumerator() + fraction.getNumerator());
 			this.setDenominator(this.getDenominator());

@@ -53,7 +53,7 @@ public class MixedNumber {
 		this.wholeNumber = wholeNumber;
 	}
 
-	public Fraction toFraction() {
+	public Fraction toFraction() throws ZeroDenomException {
 		Fraction result = new Fraction(this.getWholeNumber()*this.getDenominator() + this.getNumerator(), this.getDenominator());
 		return result;
 	}
