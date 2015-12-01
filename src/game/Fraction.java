@@ -16,15 +16,6 @@ public class Fraction {
 		return 0.0; //TODO
 	}
 	
-	/*public boolean equals(Fraction fraction) {
-		if ((this.getValue() - fraction.getValue()) < TOLERANCE) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}*/
-	
 	public boolean equals(Fraction fraction) {
 		if (this.getNumerator()*fraction.getDenominator() == this.getDenominator()*fraction.getNumerator()) {
 			return true;
@@ -34,13 +25,9 @@ public class Fraction {
 		}
 	}
 
-	public boolean equals(MixedNumber mixed) {
-		if ((this.getValue() - mixed.getValue()) < TOLERANCE) {
-			return true;
-		}
-		else {
-			return false;
-		}
+	public boolean equals(MixedNumber mixed) throws ZeroDenomException {
+		Fraction compare = mixed.toFraction();
+		return this.equals(compare);
 	}
 	
 	public double getFraction(){
