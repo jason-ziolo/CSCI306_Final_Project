@@ -1,13 +1,13 @@
 package game;
 
 @SuppressWarnings("serial")
-public class ZeroDenominator extends Exception  {
+public class ZeroDenomException extends Exception  {
 	// Constructor with message passed in
-	public ZeroDenominator(String message) {
+	public ZeroDenomException(String message) {
 		super(message);
 	}
 	
-	public ZeroDenominator() {
+	public ZeroDenomException() {
 		super("Denominator can't be zero");
 	}
 }

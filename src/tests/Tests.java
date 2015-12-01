@@ -9,10 +9,11 @@ import game.Board;
 import game.Fraction;
 import game.MixedNumber;
 import game.ProblemType;
+import game.ZeroDenomException;
 import game.Player;
 import game.Problem;
 
-public class FailingTests {
+public class Tests {
 	
 	private static Board board;
 
@@ -24,13 +25,13 @@ public class FailingTests {
 	
 	// Test that initializing a fraction with a denominator of zero results in an exception
 	@Test(expected=Exception.class)
-	public void testDivByZeroException() {
+	public void testDivByZeroException() throws ZeroDenomException {
 		new Fraction(5, 0);
 	}
 	
 	// Test that setting the denominator of a fraction results in an exception
 	@Test(expected=Exception.class)
-	public void testDivByZeroException_2() {
+	public void testDivByZeroException_2() throws ZeroDenomException {
 		Fraction badFrac = new Fraction(5, 2);
 		badFrac.setDenominator(0);
 	}
@@ -127,7 +128,7 @@ public class FailingTests {
 	}
 	
 	@Test
-	public void TestCore1(){
+	public void TestCore1() throws ZeroDenomException{
 		Fraction core1Fraction1 = new Fraction(1, 2);
 		Fraction core1Fraction2 = new Fraction(6, 12);
 		Fraction core1Fraction3 = new Fraction(3, 4);
@@ -137,7 +138,7 @@ public class FailingTests {
 	}
 	
 	@Test
-	public void TestCore2(){
+	public void TestCore2() throws ZeroDenomException{
 		Fraction core2Fraction1 = new Fraction(1,2);
 		Fraction core2Fraction2 = new Fraction(2,4);
 		assertTrue(core2Fraction1.getFraction() == core2Fraction2.getFraction());
@@ -153,7 +154,7 @@ public class FailingTests {
 	}
 	
 	@Test
-	public void TestCore3b(){
+	public void TestCore3b() throws ZeroDenomException{
 		Fraction core3bFraction1 = new Fraction(1, 4);
 		Fraction core3bFraction2 = new Fraction(2, 8);
 		Fraction core3bFraction3 = new Fraction(3, 8);
@@ -162,12 +163,16 @@ public class FailingTests {
 		assertFalse(core3bFraction1.commonDenominator(core3bFraction2));
 		assertTrue(core3bFraction2.commonDenominator(core3bFraction3));
 		assertEquals(core3bFraction1.leastCommonDenominator(core3bFraction2), 8);
-		assertTrue(core3bFraction1.changeDenomiator(core3bFraction1.leastCommonDenominator(core3bFraction2)).equals(core3bFraction2));
-		assertTrue(core3bFraction1.addition(core3bFraction2.addition(core3bFraction3)).equals(core3bFraction4));
+		try {
+			assertTrue(core3bFraction1.changeDenomiator(core3bFraction1.leastCommonDenominator(core3bFraction2)).equals(core3bFraction2));
+			assertTrue(core3bFraction1.addition(core3bFraction2.addition(core3bFraction3)).equals(core3bFraction4));
+		} catch (ZeroDenomException e) {
+			fail("Zero denominator");
+		}
 	}
 	
 	@Test
-	public void TestCore3c(){
+	public void TestCore3c() throws ZeroDenomException{
 		MixedNumber core3cMixed1 = new MixedNumber(1, 8, 0);
 		MixedNumber core3cMixed2 = new MixedNumber(2, 4, 1);
 		MixedNumber core3cMixed3 = new MixedNumber(5, 8, 1);
@@ -190,7 +195,7 @@ public class FailingTests {
 	}
 	
 	@Test
-	public void TestCore4(){
+	public void TestCore4() throws ZeroDenomException{
 		int wholeNumber = 2;
 		Fraction core4Fraction1 = new Fraction(17, 8);
 		Fraction core4Fraction2 = new Fraction(34, 8);
@@ -202,7 +207,7 @@ public class FailingTests {
 	}
 	
 	@Test
-	public void TestCore5(){
+	public void TestCore5() throws ZeroDenomException{
 		 Fraction core5Fraction1 = new Fraction(2,10);
 		 Fraction core5Fraction2 = new Fraction(20,100);
 		 Fraction core5Fraction3 = new Fraction(5,100);
