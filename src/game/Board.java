@@ -10,7 +10,6 @@ import javax.swing.JPanel;
 public class Board extends JPanel{
 	private static LinkedList<Player> players;
 	private Problem currentProblem;
-	private boolean answerRight;
 	public static final int MAX_SIZE = 5;
 	public static int distance;
 	
@@ -32,14 +31,10 @@ public class Board extends JPanel{
 	}
 	
 	public void movePlayer(){
-		if (answerRight){
-			players.get(0).move();
-		} else if (currentProblem.getType() == ProblemType.Core1 || currentProblem.getType() == ProblemType.Core5){
-			players.get(1).move();
-		} else if (currentProblem.getType() == ProblemType.Core2 || currentProblem.getType() == ProblemType.Core3c){
-			players.get(2).move();
-		} else{
-			players.get(3).move();
+		if (currentProblem.isCorrect()){
+			players.getFirst().move();
+		} else {
+			currentProblem.advanceComputer(players);
 		}
 	}
 	
@@ -63,11 +58,6 @@ public class Board extends JPanel{
 			}
 		}
 	}
-	
-	public boolean checkAnswer(){
-		//TODO
-		return false;
-	}
 
 	public static LinkedList<Player> getPlayers() {
 		return players;
@@ -75,14 +65,6 @@ public class Board extends JPanel{
 
 	public void setPlayers(LinkedList<Player> players) {
 		this.players = players;
-	}
-
-	public boolean isAnswerRight() {
-		return answerRight;
-	}
-
-	public void setAnswerRight(boolean answerRight) {
-		this.answerRight = answerRight;
 	}
 
 	public Problem getCurrentProblem() {

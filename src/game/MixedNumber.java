@@ -16,7 +16,7 @@ public class MixedNumber {
 	}
 
 	public boolean equals(Fraction fraction) {
-		if ((fraction.getValue() - this.getValue()) < fraction.TOLERANCE) {
+		if ((fraction.getValue() - this.getValue()) < Fraction.TOLERANCE) {
 			return true;
 		}
 		else {

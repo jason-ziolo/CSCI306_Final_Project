@@ -17,7 +17,8 @@ public class Game extends JFrame{
 	private static DisplayPanel display;
 	public static final int SIZE = 500;
 	public static final int PADDING = 100;
-	private LinkedList<ProblemType> problemType;	//This is here to avoid a lot of if statements down the line
+	//TODO: determine if this should stay
+	//private LinkedList<ProblemType> problemType;	//This is here to avoid a lot of if statements down the line
 	
 	public Game(){
 		this.setJMenuBar(mainJMenuBar());
@@ -25,7 +26,7 @@ public class Game extends JFrame{
 		setTitle("Fraction Fun!");
 		setSize(SIZE + PADDING, SIZE + PADDING);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		addCores();
+		//addCores();
 	}
 	
 	public static void main(String[] args){
@@ -72,6 +73,7 @@ public class Game extends JFrame{
 		return item;
 	}
 	
+	/* TODO: determine if this should stay
 	private void addCores(){
 		problemType = new LinkedList<ProblemType>();
 		problemType.add(ProblemType.Core1);
@@ -80,7 +82,7 @@ public class Game extends JFrame{
 		problemType.add(ProblemType.Core3c);
 		problemType.add(ProblemType.Core4);
 		problemType.add(ProblemType.Core5);
-	}
+	} */
 	
 	private void playGame(){
 		
