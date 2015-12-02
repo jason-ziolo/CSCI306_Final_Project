@@ -1,13 +1,10 @@
 package game;
 
-public class MixedNumber {
-	private int numerator;
-	private int denomiator;
+public class MixedNumber extends Fraction {
 	private int wholeNumber;
 	
-	public MixedNumber(int num, int den, int wholeNumber) {
-		numerator = num;
-		denomiator = den;
+	public MixedNumber(int num, int den, int wholeNumber) throws ZeroDenomException {
+		super(num, den);
 		this.wholeNumber = wholeNumber;
 	}
 	
@@ -15,13 +12,8 @@ public class MixedNumber {
 		return 0.0; //TODO
 	}
 
-	public boolean equals(Fraction fraction) {
-		if ((fraction.getValue() - this.getValue()) < Fraction.TOLERANCE) {
-			return true;
-		}
-		else {
-			return false;
-		}
+	public boolean equals(Fraction fraction) throws ZeroDenomException {
+		return fraction.equals(this);
 	}
 
 	public int getWholeNumber() {
@@ -46,13 +38,5 @@ public class MixedNumber {
 	public Fraction toFraction() throws ZeroDenomException {
 		Fraction result = new Fraction(this.getWholeNumber()*this.getDenominator() + this.getNumerator(), this.getDenominator());
 		return result;
-	}
-	
-	public int getNumerator() {
-		return numerator;
-	}
-	
-	public int getDenominator() {
-		return denomiator;
 	}
 }

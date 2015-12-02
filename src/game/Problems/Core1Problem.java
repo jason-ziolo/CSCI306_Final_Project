@@ -16,8 +16,8 @@ public class Core1Problem extends Problem {
 	public Core1Problem() throws ZeroDenomException {
 		super();
 		Random rand = new Random();
-		int num = rand.nextInt(12) + 1;
 		int den = rand.nextInt(12) + 1;
+		int num = rand.nextInt(den) + 1;
 		int scalar = rand.nextInt(4) + 1;
 		fractions.add(new Fraction(num, den));
 		fractions.add(new Fraction(num*scalar, den*scalar));

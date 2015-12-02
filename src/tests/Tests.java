@@ -63,7 +63,7 @@ public class Tests {
 		assertEquals(0, board.getPlayers().get(3).getLocation());
 		
 		Core2Problem fraction2 = new Core2Problem();
-		// TODO WIP: set the answer
+		// Testing wrong answer
 		board.setCurrentProblem(fraction2);
 		board.movePlayer();
 		assertEquals(1, board.getPlayers().get(0).getLocation());	//Make sure the correct CPU moved
@@ -144,15 +144,15 @@ public class Tests {
 	public void TestCore2() throws ZeroDenomException{
 		Fraction core2Fraction1 = new Fraction(1,2);
 		Fraction core2Fraction2 = new Fraction(2,4);
-		assertTrue(core2Fraction1.getFraction() == core2Fraction2.getFraction());
+		assertTrue(core2Fraction1.getFraction().equals(core2Fraction2.getFraction()));
 		
 		Fraction core2Fraction3 = new Fraction(1,5);
 		Fraction core2Fraction4 = new Fraction(3,4);
-		assertTrue((core2Fraction3.getFraction() < core2Fraction4.getFraction()));
+		assertTrue((core2Fraction3.getValue() < core2Fraction4.getValue()));
 		
 		Fraction core2Fraction5 = new Fraction(2,3);
 		Fraction core2Fraction6 = new Fraction(1,4);
-		assertTrue(core2Fraction5.getFraction() > core2Fraction6.getFraction());
+		assertTrue(core2Fraction5.getValue() > core2Fraction6.getValue());
 		
 	}
 	

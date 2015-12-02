@@ -46,7 +46,7 @@ public class Game extends JFrame{
 		if (Board.getPlayers().get(0).getLocation() == (Board.MAX_SIZE)){
 			message = "You win the game!";
 		} else {
-			message = "The computer wins. You have want to brush up on the following Cores: TODO";
+			message = "The computer wins. You have want to brush up on the following Cores: TODO"; //TODO
 		}
 		JOptionPane.showMessageDialog(null, message);
 		System.exit(1);
