@@ -48,7 +48,7 @@ public class Game extends JFrame{
 		} else {
 			message = "The computer wins. You have want to brush up on the following Cores: TODO"; //TODO
 		}
-		JOptionPane.showMessageDialog(null, message);
+		JOptionPane.showMessageDialog(board, message);
 		System.exit(1);
 	}
 	

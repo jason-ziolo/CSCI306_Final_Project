@@ -10,7 +10,7 @@ import java.util.LinkedList;
  */
 public abstract class Problem {
 	protected LinkedList<Fraction> fractions = new LinkedList<Fraction>();
-	protected int answer;
+	protected int answer = -1; // this will never be -1 for an actual problem
 	protected int expectedAnswer;
 	
 	public Problem() {
@@ -24,5 +24,13 @@ public abstract class Problem {
 		if(answer == expectedAnswer)
 			return true;
 		return false;
+	}
+	
+	public void setAnswer(int answer) {
+		this.answer = answer;
+	}
+
+	public int getExpectedAnswer() {
+		return expectedAnswer;
 	}
 }

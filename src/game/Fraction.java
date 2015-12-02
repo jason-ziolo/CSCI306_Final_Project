@@ -11,8 +11,8 @@ public class Fraction {
 			throw new ZeroDenomException();
 	}
 	
-	public double getValue() {
-		return 0.0; //TODO
+	public double getValue() throws ZeroDenomException {
+		return (double)this.numerator / (double)this.denominator;
 	}
 	
 	public boolean equals(Fraction fraction) throws ZeroDenomException {

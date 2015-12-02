@@ -10,9 +10,6 @@ import game.ZeroDenomException;
 
 public class Core1Problem extends Problem {
 	
-	private int answer;
-	private int expectedAnswer;
-	
 	public Core1Problem() throws ZeroDenomException {
 		super();
 		Random rand = new Random();
@@ -33,14 +30,4 @@ public class Core1Problem extends Problem {
 	public void advanceComputer(LinkedList<Player> players) {
 		players.get(1).move();
 	}
-	
-	public void setAnswer(int answer) {
-		this.answer = answer;
-	}
-	
-	// For testing only
-	public int getExpectedAnswer() {
-		return expectedAnswer;
-	}
-
 }

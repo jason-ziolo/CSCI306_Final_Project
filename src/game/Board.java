@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 public class Board extends JPanel{
 	private static LinkedList<Player> players;
 	private Problem currentProblem;
-	public static final int MAX_SIZE = 5;
+	public static final int MAX_SIZE = 6; // There are six problem types in total
 	public static int distance;
 	
 	public Board(){

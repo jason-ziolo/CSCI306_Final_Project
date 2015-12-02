@@ -8,8 +8,8 @@ public class MixedNumber extends Fraction {
 		this.wholeNumber = wholeNumber;
 	}
 	
-	public double getValue() {
-		return 0.0; //TODO
+	public double getValue() throws ZeroDenomException {
+		return this.getFraction().getValue();
 	}
 
 	public boolean equals(Fraction fraction) throws ZeroDenomException {
