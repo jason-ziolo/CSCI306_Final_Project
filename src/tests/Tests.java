@@ -52,76 +52,76 @@ public class Tests {
 		board.setCurrentProblem(fraction1);
 		board.setAnswerRight(false);
 		board.movePlayer();
-		assertEquals(1, board.getPlayers().get(1).getLocation());	//Make sure the correct CPU moved
-		assertEquals(0, board.getPlayers().get(0).getLocation());	//Make sure no other player moved
-		assertEquals(0, board.getPlayers().get(2).getLocation());
-		assertEquals(0, board.getPlayers().get(3).getLocation());
+		assertEquals(1, Board.getPlayers().get(1).getLocation());	//Make sure the correct CPU moved
+		assertEquals(0, Board.getPlayers().get(0).getLocation());	//Make sure no other player moved
+		assertEquals(0, Board.getPlayers().get(2).getLocation());
+		assertEquals(0, Board.getPlayers().get(3).getLocation());
 		
 		Problem fraction2 = new Problem(ProblemType.Core2);
 		board.setCurrentProblem(fraction2);
 		board.movePlayer();
-		assertEquals(1, board.getPlayers().get(1).getLocation());	//Make sure the correct CPU moved
-		assertEquals(0, board.getPlayers().get(0).getLocation());	//Make sure no other player moved
-		assertEquals(1, board.getPlayers().get(2).getLocation());
-		assertEquals(0, board.getPlayers().get(3).getLocation());
+		assertEquals(1, Board.getPlayers().get(1).getLocation());	//Make sure the correct CPU moved
+		assertEquals(0, Board.getPlayers().get(0).getLocation());	//Make sure no other player moved
+		assertEquals(1, Board.getPlayers().get(2).getLocation());
+		assertEquals(0, Board.getPlayers().get(3).getLocation());
 		
 		Problem fraction3 = new Problem(ProblemType.Core3b);
 		board.setCurrentProblem(fraction3);
 		board.movePlayer();
-		assertEquals(1, board.getPlayers().get(1).getLocation());	//Make sure the correct CPU moved
-		assertEquals(0, board.getPlayers().get(0).getLocation());	//Make sure no other player moved
-		assertEquals(1, board.getPlayers().get(2).getLocation());
-		assertEquals(1, board.getPlayers().get(3).getLocation());
+		assertEquals(1, Board.getPlayers().get(1).getLocation());	//Make sure the correct CPU moved
+		assertEquals(0, Board.getPlayers().get(0).getLocation());	//Make sure no other player moved
+		assertEquals(1, Board.getPlayers().get(2).getLocation());
+		assertEquals(1, Board.getPlayers().get(3).getLocation());
 		
 		Problem fraction4 = new Problem(ProblemType.Core3c);
 		board.setCurrentProblem(fraction4);
 		board.setAnswerRight(true);
 		board.movePlayer();
-		assertEquals(1, board.getPlayers().get(1).getLocation());	//Make sure the correct Player moved
-		assertEquals(1, board.getPlayers().get(0).getLocation());	//Make sure no other CPU moved
-		assertEquals(1, board.getPlayers().get(2).getLocation());
-		assertEquals(1, board.getPlayers().get(3).getLocation());
+		assertEquals(1, Board.getPlayers().get(1).getLocation());	//Make sure the correct Player moved
+		assertEquals(1, Board.getPlayers().get(0).getLocation());	//Make sure no other CPU moved
+		assertEquals(1, Board.getPlayers().get(2).getLocation());
+		assertEquals(1, Board.getPlayers().get(3).getLocation());
 		
 		board.setAnswerRight(false);
 		board.movePlayer();
-		assertEquals(1, board.getPlayers().get(1).getLocation());	//Make sure the correct Player moved
-		assertEquals(1, board.getPlayers().get(0).getLocation());	//Make sure no other CPU moved
-		assertEquals(2, board.getPlayers().get(2).getLocation());
-		assertEquals(1, board.getPlayers().get(3).getLocation());
+		assertEquals(1, Board.getPlayers().get(1).getLocation());	//Make sure the correct Player moved
+		assertEquals(1, Board.getPlayers().get(0).getLocation());	//Make sure no other CPU moved
+		assertEquals(2, Board.getPlayers().get(2).getLocation());
+		assertEquals(1, Board.getPlayers().get(3).getLocation());
 		
 		Problem problem5 = new Problem(ProblemType.Core4);
 		board.setCurrentProblem(problem5);
 		board.movePlayer();
-		assertEquals(1, board.getPlayers().get(1).getLocation());	//Make sure the correct CPU moved
-		assertEquals(1, board.getPlayers().get(0).getLocation());	//Make sure no other player moved
-		assertEquals(2, board.getPlayers().get(2).getLocation());
-		assertEquals(2, board.getPlayers().get(3).getLocation());
+		assertEquals(1, Board.getPlayers().get(1).getLocation());	//Make sure the correct CPU moved
+		assertEquals(1, Board.getPlayers().get(0).getLocation());	//Make sure no other player moved
+		assertEquals(2, Board.getPlayers().get(2).getLocation());
+		assertEquals(2, Board.getPlayers().get(3).getLocation());
 		
 		Problem problem6 = new Problem(ProblemType.Core5);
 		board.setCurrentProblem(problem6);
 		board.movePlayer();
-		assertEquals(2, board.getPlayers().get(1).getLocation());	//Make sure the correct CPU moved
-		assertEquals(1, board.getPlayers().get(0).getLocation());	//Make sure no other player moved
-		assertEquals(2, board.getPlayers().get(2).getLocation());
-		assertEquals(2, board.getPlayers().get(3).getLocation());
+		assertEquals(2, Board.getPlayers().get(1).getLocation());	//Make sure the correct CPU moved
+		assertEquals(1, Board.getPlayers().get(0).getLocation());	//Make sure no other player moved
+		assertEquals(2, Board.getPlayers().get(2).getLocation());
+		assertEquals(2, Board.getPlayers().get(3).getLocation());
 	}
 	
 	@Test
 	public void gameEndsRight(){
 		//Make sure the game ends when ANY player is at the end
-		board.getPlayers().get(0).setLocation(Board.MAX_SIZE);
+		Board.getPlayers().get(0).setLocation(Board.MAX_SIZE);
 		assertTrue(board.checkOver());
-		board.getPlayers().get(0).setLocation(0);
-		board.getPlayers().get(1).setLocation(Board.MAX_SIZE);
+		Board.getPlayers().get(0).setLocation(0);
+		Board.getPlayers().get(1).setLocation(Board.MAX_SIZE);
 		assertTrue(board.checkOver());
-		board.getPlayers().get(1).setLocation(0);
-		board.getPlayers().get(2).setLocation(Board.MAX_SIZE);
+		Board.getPlayers().get(1).setLocation(0);
+		Board.getPlayers().get(2).setLocation(Board.MAX_SIZE);
 		assertTrue(board.checkOver());
-		board.getPlayers().get(2).setLocation(0);
-		board.getPlayers().get(3).setLocation(Board.MAX_SIZE);
+		Board.getPlayers().get(2).setLocation(0);
+		Board.getPlayers().get(3).setLocation(Board.MAX_SIZE);
 		assertTrue(board.checkOver());
 		// Make sure the game doesn't end if no one is at the end
-		board.getPlayers().get(3).setLocation(0);
+		Board.getPlayers().get(3).setLocation(0);
 		assertFalse(board.checkOver());
 		
 	}

@@ -73,10 +73,6 @@ public class Board extends JPanel{
 		return players;
 	}
 
-	public void setPlayers(LinkedList<Player> players) {
-		this.players = players;
-	}
-
 	public boolean isAnswerRight() {
 		return answerRight;
 	}

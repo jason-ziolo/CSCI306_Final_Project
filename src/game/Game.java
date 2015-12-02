@@ -17,7 +17,7 @@ public class Game extends JFrame{
 	private static DisplayPanel display;
 	public static final int SIZE = 500;
 	public static final int PADDING = 100;
-	private LinkedList<ProblemType> problemType;	//This is here to avoid a lot of if statements down the line
+	private static LinkedList<ProblemType> problemType;	//This is here to avoid a lot of if statements down the line
 	
 	public Game(){
 		this.setJMenuBar(mainJMenuBar());
@@ -37,7 +37,7 @@ public class Game extends JFrame{
 		game.setVisible(true);
 		
 		while(!board.checkOver()){
-			game.playGame();
+			//game.playGame();
 			board.repaint();
 		}
 		
@@ -81,8 +81,8 @@ public class Game extends JFrame{
 		problemType.add(ProblemType.Core4);
 		problemType.add(ProblemType.Core5);
 	}
-	
-	private void playGame(){
-		
+
+	public static LinkedList<ProblemType> getProblemType(){
+		return problemType;
 	}
 }
