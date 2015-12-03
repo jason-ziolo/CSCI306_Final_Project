@@ -1,7 +1,6 @@
 package game;
 
 public class Fraction {
-	public final static double TOLERANCE = 0.0001;
 	protected int numerator;
 	protected int denominator;
 	
@@ -12,11 +11,11 @@ public class Fraction {
 			throw new ZeroDenomException();
 	}
 	
-	public double getValue() {
-		return 0.0; //TODO
+	public double getValue() throws ZeroDenomException {
+		return (double)this.numerator / (double)this.denominator;
 	}
 	
-	public boolean equals(Fraction fraction) {
+	public boolean equals(Fraction fraction) throws ZeroDenomException {
 		if (this.getNumerator()*fraction.getDenominator() == this.getDenominator()*fraction.getNumerator()) {
 			return true;
 		}
@@ -30,8 +29,8 @@ public class Fraction {
 		return this.equals(compare);
 	}
 	
-	public double getFraction(){
-		return (double)numerator / (double) denominator;
+	public Fraction getFraction() throws ZeroDenomException{
+		return new Fraction(numerator, denominator);
 	}
 	
 	public int getNumerator() {
@@ -108,7 +107,7 @@ public class Fraction {
 		}
 	}
 
-	public MixedNumber toMixedNumber() {
+	public MixedNumber toMixedNumber() throws ZeroDenomException {
 		int numerator = this.getNumerator() % this.getDenominator();
 		if (this.getNumerator() > this.getDenominator()) {
 			MixedNumber result = new MixedNumber(numerator, this.getDenominator(),(this.getNumerator() - numerator) / this.denominator);

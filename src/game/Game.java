@@ -3,7 +3,6 @@ package game;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.LinkedList;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -17,7 +16,9 @@ public class Game extends JFrame{
 	private static DisplayPanel display;
 	public static final int SIZE = 500;
 	public static final int PADDING = 100;
-	private static LinkedList<ProblemType> problemType;	//This is here to avoid a lot of if statements down the line
+
+	//TODO: determine if this should stay
+	//private LinkedList<ProblemType> problemType;	//This is here to avoid a lot of if statements down the line
 	
 	public Game(){
 		this.setJMenuBar(mainJMenuBar());
@@ -25,7 +26,6 @@ public class Game extends JFrame{
 		setTitle("Fraction Fun!");
 		setSize(SIZE + PADDING, SIZE + PADDING);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		addCores();
 	}
 	
 	public static void main(String[] args){
@@ -37,18 +37,22 @@ public class Game extends JFrame{
 		game.setVisible(true);
 		
 		while(!board.checkOver()){
-			//game.playGame();
-			board.repaint();
 		}
 		
 		String message;
 		if (Board.getPlayers().get(0).getLocation() == (Board.MAX_SIZE)){
 			message = "You win the game!";
 		} else {
-			message = "The computer wins. You have want to brush up on the following Cores: TODO";
+			message = "The computer wins. You have want to brush up on the following Cores: TODO"; //TODO
 		}
-		JOptionPane.showMessageDialog(null, message);
+		JOptionPane.showMessageDialog(board, message);
 		System.exit(1);
+	}
+	
+	public static void checkAnswer(Problem problem){
+		board.setCurrentProblem(problem);
+		board.movePlayer();
+		display.newDisplay();
 	}
 	
 	
@@ -72,17 +76,4 @@ public class Game extends JFrame{
 		return item;
 	}
 	
-	private void addCores(){
-		problemType = new LinkedList<ProblemType>();
-		problemType.add(ProblemType.Core1);
-		problemType.add(ProblemType.Core2);
-		problemType.add(ProblemType.Core3b);
-		problemType.add(ProblemType.Core3c);
-		problemType.add(ProblemType.Core4);
-		problemType.add(ProblemType.Core5);
-	}
-
-	public static LinkedList<ProblemType> getProblemType(){
-		return problemType;
-	}
 }

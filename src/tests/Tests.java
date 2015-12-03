@@ -7,10 +7,14 @@ import org.junit.Test;
 import game.Board;
 import game.Fraction;
 import game.MixedNumber;
-import game.ProblemType;
 import game.ZeroDenomException;
+import game.Problems.Core1Problem;
+import game.Problems.Core2Problem;
+import game.Problems.Core3BProblem;
+import game.Problems.Core3CProblem;
+import game.Problems.Core4Problem;
+import game.Problems.Core5Problem;
 import game.Player;
-import game.Problem;
 
 public class Tests {
 	
@@ -47,61 +51,104 @@ public class Tests {
 	
 	// Tests make sure the computer players move as expected
 	@Test
-	public void CPUMovesCorrectly(){
-		Problem fraction1 = new Problem(ProblemType.Core1);
+	public void CPUMovesCorrectly() throws ZeroDenomException{
+		Core1Problem fraction1 = new Core1Problem();
 		board.setCurrentProblem(fraction1);
-		board.setAnswerRight(false);
+		// Testing wrong answer
 		board.movePlayer();
-		assertEquals(1, Board.getPlayers().get(1).getLocation());	//Make sure the correct CPU moved
-		assertEquals(0, Board.getPlayers().get(0).getLocation());	//Make sure no other player moved
+		assertEquals(0, Board.getPlayers().get(0).getLocation());	//Make sure the correct player moved
+		assertEquals(1, Board.getPlayers().get(1).getLocation());	//Make sure no other player moved
 		assertEquals(0, Board.getPlayers().get(2).getLocation());
 		assertEquals(0, Board.getPlayers().get(3).getLocation());
 		
-		Problem fraction2 = new Problem(ProblemType.Core2);
-		board.setCurrentProblem(fraction2);
+		// Testing correct answer
+		fraction1.setAnswer(fraction1.getExpectedAnswer());
 		board.movePlayer();
-		assertEquals(1, Board.getPlayers().get(1).getLocation());	//Make sure the correct CPU moved
-		assertEquals(0, Board.getPlayers().get(0).getLocation());	//Make sure no other player moved
+		assertEquals(1, Board.getPlayers().get(0).getLocation());
+		assertEquals(1, Board.getPlayers().get(1).getLocation());
+		assertEquals(0, Board.getPlayers().get(2).getLocation());
+		assertEquals(0, Board.getPlayers().get(3).getLocation());
+		
+		Core2Problem fraction2 = new Core2Problem();
+		board.setCurrentProblem(fraction2);
+		// Testing wrong answer
+		board.movePlayer();
+		assertEquals(1, Board.getPlayers().get(0).getLocation());
+		assertEquals(1, Board.getPlayers().get(1).getLocation());
+		assertEquals(1, Board.getPlayers().get(2).getLocation());
+		assertEquals(0, Board.getPlayers().get(3).getLocation());
+		// Testing correct answer
+		fraction2.setAnswer(fraction2.getExpectedAnswer());
+		board.movePlayer();
+		assertEquals(2, Board.getPlayers().get(0).getLocation());
+		assertEquals(1, Board.getPlayers().get(1).getLocation());
 		assertEquals(1, Board.getPlayers().get(2).getLocation());
 		assertEquals(0, Board.getPlayers().get(3).getLocation());
 		
-		Problem fraction3 = new Problem(ProblemType.Core3b);
+		Core3BProblem fraction3 = new Core3BProblem();
 		board.setCurrentProblem(fraction3);
+		// Testing wrong answer
 		board.movePlayer();
-		assertEquals(1, Board.getPlayers().get(1).getLocation());	//Make sure the correct CPU moved
-		assertEquals(0, Board.getPlayers().get(0).getLocation());	//Make sure no other player moved
+		assertEquals(2, Board.getPlayers().get(0).getLocation());
+		assertEquals(1, Board.getPlayers().get(1).getLocation());
+		assertEquals(1, Board.getPlayers().get(2).getLocation());
+		assertEquals(1, Board.getPlayers().get(3).getLocation());
+		// Testing correct answer
+		fraction3.setAnswer(fraction3.getExpectedAnswer());
+		board.movePlayer();
+		assertEquals(3, Board.getPlayers().get(0).getLocation());
+		assertEquals(1, Board.getPlayers().get(1).getLocation());
 		assertEquals(1, Board.getPlayers().get(2).getLocation());
 		assertEquals(1, Board.getPlayers().get(3).getLocation());
 		
-		Problem fraction4 = new Problem(ProblemType.Core3c);
+		Core3CProblem fraction4 = new Core3CProblem();
 		board.setCurrentProblem(fraction4);
-		board.setAnswerRight(true);
+		// Testing wrong answer
 		board.movePlayer();
-		assertEquals(1, Board.getPlayers().get(1).getLocation());	//Make sure the correct Player moved
-		assertEquals(1, Board.getPlayers().get(0).getLocation());	//Make sure no other CPU moved
-		assertEquals(1, Board.getPlayers().get(2).getLocation());
-		assertEquals(1, Board.getPlayers().get(3).getLocation());
-		
-		board.setAnswerRight(false);
-		board.movePlayer();
-		assertEquals(1, Board.getPlayers().get(1).getLocation());	//Make sure the correct Player moved
-		assertEquals(1, Board.getPlayers().get(0).getLocation());	//Make sure no other CPU moved
+		assertEquals(3, Board.getPlayers().get(0).getLocation());
+		assertEquals(1, Board.getPlayers().get(1).getLocation());
 		assertEquals(2, Board.getPlayers().get(2).getLocation());
 		assertEquals(1, Board.getPlayers().get(3).getLocation());
 		
-		Problem problem5 = new Problem(ProblemType.Core4);
-		board.setCurrentProblem(problem5);
+		// Testing correct answer
+		fraction4.setAnswer(fraction4.getExpectedAnswer());
 		board.movePlayer();
-		assertEquals(1, Board.getPlayers().get(1).getLocation());	//Make sure the correct CPU moved
-		assertEquals(1, Board.getPlayers().get(0).getLocation());	//Make sure no other player moved
+		assertEquals(4, Board.getPlayers().get(0).getLocation());
+		assertEquals(1, Board.getPlayers().get(1).getLocation());
+		assertEquals(2, Board.getPlayers().get(2).getLocation());
+		assertEquals(1, Board.getPlayers().get(3).getLocation());
+		
+		Core4Problem fraction5 = new Core4Problem();
+		board.setCurrentProblem(fraction5);
+		// Testing wrong answer
+		board.movePlayer();
+		assertEquals(4, Board.getPlayers().get(0).getLocation());
+		assertEquals(1, Board.getPlayers().get(1).getLocation());
 		assertEquals(2, Board.getPlayers().get(2).getLocation());
 		assertEquals(2, Board.getPlayers().get(3).getLocation());
 		
-		Problem problem6 = new Problem(ProblemType.Core5);
-		board.setCurrentProblem(problem6);
+		// Testing correct answer
+		fraction5.setAnswer(fraction5.getExpectedAnswer());
 		board.movePlayer();
-		assertEquals(2, Board.getPlayers().get(1).getLocation());	//Make sure the correct CPU moved
-		assertEquals(1, Board.getPlayers().get(0).getLocation());	//Make sure no other player moved
+		assertEquals(5, Board.getPlayers().get(0).getLocation());
+		assertEquals(1, Board.getPlayers().get(1).getLocation());
+		assertEquals(2, Board.getPlayers().get(2).getLocation());
+		assertEquals(2, Board.getPlayers().get(3).getLocation());
+		
+		Core5Problem fraction6 = new Core5Problem();
+		board.setCurrentProblem(fraction6);
+		// Testing wrong answer
+		board.movePlayer();
+		assertEquals(5, Board.getPlayers().get(0).getLocation());
+		assertEquals(2, Board.getPlayers().get(1).getLocation());
+		assertEquals(2, Board.getPlayers().get(2).getLocation());
+		assertEquals(2, Board.getPlayers().get(3).getLocation());
+		
+		// Testing right answer
+		fraction6.setAnswer(fraction6.getExpectedAnswer());
+		board.movePlayer();
+		assertEquals(6, Board.getPlayers().get(0).getLocation());
+		assertEquals(2, Board.getPlayers().get(1).getLocation());
 		assertEquals(2, Board.getPlayers().get(2).getLocation());
 		assertEquals(2, Board.getPlayers().get(3).getLocation());
 	}
@@ -140,15 +187,15 @@ public class Tests {
 	public void TestCore2() throws ZeroDenomException{
 		Fraction core2Fraction1 = new Fraction(1,2);
 		Fraction core2Fraction2 = new Fraction(2,4);
-		assertTrue(core2Fraction1.getFraction() == core2Fraction2.getFraction());
+		assertTrue(core2Fraction1.getFraction().equals(core2Fraction2.getFraction()));
 		
 		Fraction core2Fraction3 = new Fraction(1,5);
 		Fraction core2Fraction4 = new Fraction(3,4);
-		assertTrue((core2Fraction3.getFraction() < core2Fraction4.getFraction()));
+		assertTrue((core2Fraction3.getValue() < core2Fraction4.getValue()));
 		
 		Fraction core2Fraction5 = new Fraction(2,3);
 		Fraction core2Fraction6 = new Fraction(1,4);
-		assertTrue(core2Fraction5.getFraction() > core2Fraction6.getFraction());
+		assertTrue(core2Fraction5.getValue() > core2Fraction6.getValue());
 		
 	}
 	

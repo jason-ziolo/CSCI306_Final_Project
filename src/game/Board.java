@@ -4,15 +4,16 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.LinkedList;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class Board extends JPanel{
 	private static LinkedList<Player> players;
 	private Problem currentProblem;
-	private boolean answerRight;
-	public static final int MAX_SIZE = 5;
+	public static final int MAX_SIZE = 6; // There are six problem types in total
 	public static int distance;
+	public boolean answerRight;
 	
 	public Board(){
 		players = new LinkedList<Player>();
@@ -32,15 +33,15 @@ public class Board extends JPanel{
 	}
 	
 	public void movePlayer(){
-		if (answerRight){
-			players.get(0).move();
-		} else if (currentProblem.getType() == ProblemType.Core1 || currentProblem.getType() == ProblemType.Core5){
-			players.get(1).move();
-		} else if (currentProblem.getType() == ProblemType.Core2 || currentProblem.getType() == ProblemType.Core3c){
-			players.get(2).move();
-		} else{
-			players.get(3).move();
+		System.out.println(currentProblem);
+		if (currentProblem.isCorrect()){
+			players.getFirst().move();
+			JOptionPane.showMessageDialog(null, "Correct!");
+		} else {
+			currentProblem.advanceComputer(players);
+			JOptionPane.showMessageDialog(null, "Incorrect: Expected answer was " + currentProblem.getExpectedAnswer() + ".");
 		}
+		repaint();
 	}
 	
 	public boolean checkOver(){
@@ -63,11 +64,6 @@ public class Board extends JPanel{
 			}
 		}
 	}
-	
-	public boolean checkAnswer(){
-		//TODO
-		return false;
-	}
 
 	public static LinkedList<Player> getPlayers() {
 		return players;
@@ -79,6 +75,10 @@ public class Board extends JPanel{
 
 	public void setAnswerRight(boolean answerRight) {
 		this.answerRight = answerRight;
+	}
+	
+	public void setPlayers(LinkedList<Player> players) {
+		Board.players = players;
 	}
 
 	public Problem getCurrentProblem() {
