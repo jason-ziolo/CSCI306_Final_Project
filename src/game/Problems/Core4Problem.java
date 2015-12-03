@@ -25,12 +25,6 @@ public class Core4Problem extends Problem {
 	}
 
 	@Override
-	public void draw() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public void advanceComputer(LinkedList<Player> players) {
 		players.get(3).move();
 	}

@@ -36,6 +36,8 @@ public class ProblemDisplay extends JDialog {
 		this.setLayout(new GridLayout(0,2));
 		pad = new Numpad(this);
 		add(pad);
+		add(problem);
+		problem.setVisible(true);
 	}
 	
 	public void makeQuestion() throws ZeroDenomException{
@@ -55,7 +57,7 @@ public class ProblemDisplay extends JDialog {
 			case 6: setProblem(new Core5Problem());
 					break;
 		}
-		System.out.println(problem.getExpectedAnswer());
+		System.out.println(problem + " " + problem.getExpectedAnswer());
 	}
 	
 	public void setProblem(Problem problem){
@@ -71,7 +73,7 @@ public class ProblemDisplay extends JDialog {
 	}
 	
 	public class Numpad extends JPanel{
-		private LinkedList<JButton> buttons;
+		private LinkedList<JButton> buttons = new LinkedList<JButton>();
 		private ProblemDisplay display;
 		int answer = 0;
 		

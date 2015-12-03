@@ -1,5 +1,7 @@
 package game;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.util.LinkedList;
 
 import javax.swing.JPanel;
@@ -20,8 +22,6 @@ public abstract class Problem extends JPanel{
 	public Problem() {
 	}
 	
-	public abstract void draw();
-
 	public abstract void advanceComputer(LinkedList<Player> players);
 
 	public boolean isCorrect() {

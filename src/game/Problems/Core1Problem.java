@@ -3,6 +3,10 @@ package game.Problems;
 import java.util.LinkedList;
 import java.util.Random;
 
+import javax.swing.JTextField;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+
 import game.Fraction;
 import game.Player;
 import game.Problem;
@@ -20,11 +24,11 @@ public class Core1Problem extends Problem {
 		fractions.add(new Fraction(num, den));
 		fractions.add(new Fraction(num*scalar, den*scalar));
 		expectedAnswer = num*scalar;
-	}
-
-	@Override
-	public void draw() {
-		// TODO Auto-generated method stub
+		
+		this.setVisible(true);
+		this.setSize(50, 50);
+		this.add(new JTextField("Hello"));
+		this.setBorder(new TitledBorder(new EtchedBorder(), "hi"));
 	}
 
 	@Override

@@ -27,6 +27,7 @@ public class DisplayPanel extends JPanel{
 		public void newDisplay(){
 			try {
 				display.makeQuestion();
+				display.getProblem().repaint();
 			} catch (ZeroDenomException e) {
 				System.out.println(e.getMessage());
 			}
