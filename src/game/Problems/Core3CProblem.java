@@ -9,6 +9,7 @@ import game.Player;
 import game.Problem;
 import game.ZeroDenomException;
 
+@SuppressWarnings("serial")
 public class Core3CProblem extends Problem {
 
 	private boolean mixedToFrac;

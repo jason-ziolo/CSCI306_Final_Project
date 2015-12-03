@@ -41,10 +41,24 @@ public class Game extends JFrame{
 		
 		board.repaint();
 		String message;
-		if (Board.getPlayers().get(0).getLocation() >= (Board.MAX_SIZE)){
+		Player winner = null;
+		for (Player players : Board.getPlayers()){
+			if (players.getLocation() == Board.MAX_SIZE){
+				winner = players;
+				break;
+			}
+		}
+		if (winner.equals(Board.getPlayers().get(0))){
 			message = "You win the game!";
 		} else {
-			message = "The computer wins. You have want to brush up on the following Cores: TODO"; //TODO
+			message = "The computer wins. You have want to brush up on the following Cores: ";
+			if (winner.equals(Board.getPlayers().get(1))){
+				message += "1 and 5.";
+			} else if(winner.equals(Board.getPlayers().get(2))){
+				message += "2 and 3C";
+			} else if(winner.equals(Board.getPlayers().get(3))){
+				message += "3B and 4";
+			}
 		}
 		JOptionPane.showMessageDialog(board, message);
 		System.exit(1);

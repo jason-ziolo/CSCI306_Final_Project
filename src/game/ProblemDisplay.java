@@ -73,10 +73,10 @@ public class ProblemDisplay extends JDialog {
 	public class Numpad extends JPanel{
 		private LinkedList<JButton> buttons;
 		private ProblemDisplay display;
+		int answer = 0;
 		
 		public Numpad(ProblemDisplay display){
 			this.display = display;
-			buttons = new LinkedList<JButton>();
 			this.setLayout(new GridLayout(0,3));
 			addButton();
 			for (JButton button : buttons){
@@ -84,21 +84,34 @@ public class ProblemDisplay extends JDialog {
 			}
 		}
 		
+		public void newButton(int pressed){
+			answer = answer * 10 + pressed;
+		}
+		
+		public void resetAnswer(){
+			answer = 0;
+		}
+		
 		public void addButton(){
-			for (int i = 0; i < 11; i++){
+			for (int i = 0; i < 10; i++){
 				String temp = "" + i;
 				JButton button = new JButton(temp);
 				button.addActionListener(new ButtonListener());
 				buttons.add(button);
 			}
 			
-			JButton button = new JButton("Exit");
+			JButton button = new JButton("Submit");
 			button.addActionListener(new ButtonListener());
 			buttons.add(button);
+			
+			JButton button2 = new JButton("Exit");
+			button2.addActionListener(new ButtonListener());
+			buttons.add(button2);
 		}
 		
 		public class ButtonListener implements ActionListener {
 			private int numPressed;
+			
 			public void actionPerformed(ActionEvent e) {
 				for (int i = 0; i < buttons.size(); i++){
 					if (e.getSource() == buttons.get(i)){
@@ -108,9 +121,13 @@ public class ProblemDisplay extends JDialog {
 				}
 				if (numPressed == 11){
 					noDisplay();
-				} else if(true){
-					display.getProblem().setAnswer(numPressed);
+				} else if(numPressed == 10){
+					System.out.println(answer);
+					display.getProblem().setAnswer(answer);
+					resetAnswer();
 					Game.checkAnswer(problem);
+				} else {
+					newButton(numPressed);
 				}
 			}
 		}

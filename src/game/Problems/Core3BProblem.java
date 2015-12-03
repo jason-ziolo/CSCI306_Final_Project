@@ -8,6 +8,7 @@ import game.Player;
 import game.Problem;
 import game.ZeroDenomException;
 
+@SuppressWarnings("serial")
 public class Core3BProblem extends Problem {
 
 	public Core3BProblem() throws ZeroDenomException {
