@@ -9,6 +9,7 @@ import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import game.Problems.Core1Problem;
 import game.Problems.Core2Problem;
@@ -75,19 +76,29 @@ public class ProblemDisplay extends JDialog {
 	public class Numpad extends JPanel{
 		private LinkedList<JButton> buttons = new LinkedList<JButton>();
 		private ProblemDisplay display;
+		private JTextField text;
 		int answer = 0;
 		
 		public Numpad(ProblemDisplay display){
 			this.display = display;
 			this.setLayout(new GridLayout(0,3));
+			buttons = new LinkedList<JButton>();
 			addButton();
 			for (JButton button : buttons){
 				add(button);
 			}
+			updateAnswer();
+			add(text);
+		}
+		
+		public void updateAnswer(){
+			String temp = "" + answer;
+			text.setText(temp);
 		}
 		
 		public void newButton(int pressed){
 			answer = answer * 10 + pressed;
+			updateAnswer();
 		}
 		
 		public void resetAnswer(){
@@ -106,9 +117,8 @@ public class ProblemDisplay extends JDialog {
 			button.addActionListener(new ButtonListener());
 			buttons.add(button);
 			
-			JButton button2 = new JButton("Exit");
-			button2.addActionListener(new ButtonListener());
-			buttons.add(button2);
+			text = new JTextField(5);
+			text.setEditable(false);
 		}
 		
 		public class ButtonListener implements ActionListener {
@@ -127,6 +137,7 @@ public class ProblemDisplay extends JDialog {
 					System.out.println(answer);
 					display.getProblem().setAnswer(answer);
 					resetAnswer();
+					updateAnswer();
 					Game.checkAnswer(problem);
 				} else {
 					newButton(numPressed);
