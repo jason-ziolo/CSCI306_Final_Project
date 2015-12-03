@@ -24,7 +24,7 @@ public class Game extends JFrame{
 		this.setJMenuBar(mainJMenuBar());
 		setName("Fraction Fun!");
 		setTitle("Fraction Fun!");
-		setSize(SIZE + PADDING, SIZE + PADDING);
+		setSize(SIZE + PADDING, SIZE * 2 / 3 + PADDING);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
@@ -39,8 +39,9 @@ public class Game extends JFrame{
 		while(!board.checkOver()){
 		}
 		
+		board.repaint();
 		String message;
-		if (Board.getPlayers().get(0).getLocation() == (Board.MAX_SIZE)){
+		if (Board.getPlayers().get(0).getLocation() >= (Board.MAX_SIZE)){
 			message = "You win the game!";
 		} else {
 			message = "The computer wins. You have want to brush up on the following Cores: TODO"; //TODO

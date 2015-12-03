@@ -33,7 +33,6 @@ public class Board extends JPanel{
 	}
 	
 	public void movePlayer(){
-		System.out.println(currentProblem);
 		if (currentProblem.isCorrect()){
 			players.getFirst().move();
 			JOptionPane.showMessageDialog(null, "Correct!");
