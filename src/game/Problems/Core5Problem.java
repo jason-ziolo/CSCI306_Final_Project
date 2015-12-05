@@ -3,6 +3,10 @@ package game.Problems;
 import java.util.LinkedList;
 import java.util.Random;
 
+import javax.swing.JTextField;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+
 import game.Fraction;
 import game.Player;
 import game.Problem;
@@ -25,11 +29,15 @@ public class Core5Problem extends Problem {
 		fractions.add(base10);
 		fractions.add(base100);
 		fractions.add(result); // will add answer, but it will not be shown (only denominator)
+		
+		this.setVisible(true);
+		this.setSize(50, 50);
+		this.add(new JTextField("Problem 5"));
+		this.setBorder(new TitledBorder(new EtchedBorder(), "Core 5 Problem"));
 	}
 
 	@Override
 	public void advanceComputer(LinkedList<Player> players) {
 		players.get(1).move();
 	}
-
 }

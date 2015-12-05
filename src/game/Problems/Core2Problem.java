@@ -1,7 +1,14 @@
 package game.Problems;
 
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.util.LinkedList;
 import java.util.Random;
+
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 
 import game.Fraction;
 import game.Player;
@@ -37,11 +44,68 @@ public class Core2Problem extends Problem {
 		} else {
 			this.expectedAnswer = 2;
 		}
+		
+		this.setLayout(new GridLayout(0, 3));
+		JTextField numText = new JTextField(String.valueOf(num));
+		numText.setHorizontalAlignment(numText.CENTER);
+		numText.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		numText.setFont(new Font("Arial", 0, 25));
+		numText.setEditable(false);
+		JTextField blank1 = new JTextField("");
+		blank1.setHorizontalAlignment(numText.CENTER);
+		blank1.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		blank1.setFont(new Font("Arial", 0, 25));
+		blank1.setEditable(false);
+		JTextField num2Text = new JTextField(String.valueOf(num2));
+		num2Text.setHorizontalAlignment(numText.CENTER);
+		num2Text.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		num2Text.setFont(new Font("Arial", 0, 25));
+		num2Text.setEditable(false);
+		JTextField bar1 = new JTextField("____");
+		bar1.setHorizontalAlignment(numText.CENTER);
+		bar1.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		bar1.setFont(new Font("Arial", 0, 25));
+		bar1.setEditable(false);
+		JComboBox equality = new JComboBox();
+		equality.addItem("<");
+		equality.addItem("=");
+		equality.addItem(">");
+		equality.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		equality.setFont(new Font("Arial", 0, 25));
+		JTextField bar2 = new JTextField("____");
+		bar2.setHorizontalAlignment(numText.CENTER);
+		bar2.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		bar2.setFont(new Font("Arial", 0, 25));
+		bar2.setEditable(false);
+		JTextField denText = new JTextField(String.valueOf(den));
+		denText.setHorizontalAlignment(numText.CENTER);
+		denText.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		denText.setFont(new Font("Arial", 0, 25));
+		denText.setEditable(false);
+		JTextField blank2 = new JTextField("");
+		blank2.setHorizontalAlignment(numText.CENTER);
+		blank2.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		blank2.setFont(new Font("Arial", 0, 25));
+		blank2.setEditable(false);
+		JTextField den2Text = new JTextField(String.valueOf(den2));
+		den2Text.setHorizontalAlignment(numText.CENTER);
+		den2Text.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		den2Text.setFont(new Font("Arial", 0, 25));
+		den2Text.setEditable(false);
+		
+		this.add(numText);
+		this.add(blank1);
+		this.add(num2Text);
+		this.add(bar1);
+		this.add(equality);
+		this.add(bar2);
+		this.add(denText);
+		this.add(blank2);
+		this.add(den2Text);
 	}
 
 	@Override
 	public void advanceComputer(LinkedList<Player> players) {
 		players.get(2).move();
 	}
-
 }

@@ -38,12 +38,11 @@ public class ProblemDisplay extends JDialog {
 		pad = new Numpad(this);
 		add(pad);
 		add(problem);
-		problem.setVisible(true);
 	}
 	
 	public void makeQuestion() throws ZeroDenomException{
 		Random rand = new Random();
-		int question = rand.nextInt(6) + 1;
+		int question = rand.nextInt(6) + 1;	//Change back to 6 + 1
 		switch(question){
 			case 1: setProblem(new Core1Problem());
 					break;
@@ -134,11 +133,11 @@ public class ProblemDisplay extends JDialog {
 				if (numPressed == 11){
 					noDisplay();
 				} else if(numPressed == 10){
-					System.out.println(answer);
 					display.getProblem().setAnswer(answer);
 					resetAnswer();
 					updateAnswer();
 					Game.checkAnswer(problem);
+					noDisplay();
 				} else {
 					newButton(numPressed);
 				}

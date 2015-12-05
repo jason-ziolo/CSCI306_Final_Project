@@ -3,6 +3,10 @@ package game.Problems;
 import java.util.LinkedList;
 import java.util.Random;
 
+import javax.swing.JTextField;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+
 import game.Fraction;
 import game.MixedNumber;
 import game.Player;
@@ -30,11 +34,15 @@ public class Core3CProblem extends Problem {
 		} else {
 			this.expectedAnswer = mixed.getWholeNumber();
 		}
+		
+		this.setVisible(true);
+		this.setSize(50, 50);
+		this.add(new JTextField("Problem 3C"));
+		this.setBorder(new TitledBorder(new EtchedBorder(), "Core 3C Problem"));
 	}
 
 	@Override
 	public void advanceComputer(LinkedList<Player> players) {
 		players.get(2).move();
 	}
-
 }
