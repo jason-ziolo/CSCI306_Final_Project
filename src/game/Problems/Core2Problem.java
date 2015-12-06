@@ -20,6 +20,8 @@ public class Core2Problem extends Problem {
 
 	public Core2Problem() throws ZeroDenomException {
 		super();
+		
+		involvesKeypad = false;
 		// Two fractions are randomly generated
 		// They can have any relationship to each other
 		// The player will guess a RelationOperator
