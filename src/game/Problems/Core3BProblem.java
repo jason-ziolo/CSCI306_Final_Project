@@ -67,11 +67,11 @@ public class Core3BProblem extends Problem {
 		blank2.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		blank2.setFont(new Font("Arial", 0, 25));
 		blank2.setEditable(false);
-		JTextField blankNumerator = new JTextField("");
-		blankNumerator.setHorizontalAlignment(blankNumerator.CENTER);
-		blankNumerator.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-		blankNumerator.setFont(new Font("Arial", 0, 25));
-		blankNumerator.setEditable(false);
+		blankAnswer = new JTextField("");
+		blankAnswer.setHorizontalAlignment(blankAnswer.CENTER);
+		blankAnswer.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		blankAnswer.setFont(new Font("Arial", 0, 25));
+		blankAnswer.setEditable(false);
 		JTextField bar1 = new JTextField("____");
 		bar1.setHorizontalAlignment(bar1.CENTER);
 		bar1.setBorder(javax.swing.BorderFactory.createEmptyBorder());
@@ -127,7 +127,7 @@ public class Core3BProblem extends Problem {
 		this.add(blank1);
 		this.add(num2Text);
 		this.add(blank2);
-		this.add(blankNumerator);
+		this.add(blankAnswer);
 		this.add(bar1);
 		this.add(equalSign);
 		this.add(bar2);

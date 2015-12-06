@@ -52,11 +52,11 @@ public class Core4Problem extends Problem {
 		blank2.setBorder(BorderFactory.createEmptyBorder());
 		blank2.setEditable(false);
 		
-		JTextField blankNum = new JTextField("");
-		blankNum.setHorizontalAlignment(blankNum.CENTER);
-		blankNum.setFont(new Font("Arial", 0, 25));
-		blankNum.setBorder(BorderFactory.createEmptyBorder());
-		blankNum.setEditable(false);
+		blankAnswer = new JTextField("");
+		blankAnswer.setHorizontalAlignment(blankAnswer.CENTER);
+		blankAnswer.setFont(new Font("Arial", 0, 25));
+		blankAnswer.setBorder(BorderFactory.createEmptyBorder());
+		blankAnswer.setEditable(false);
 		
 		JTextField wholeNum = new JTextField(String.valueOf(mixed.getWholeNumber()));
 		wholeNum.setHorizontalAlignment(wholeNum.CENTER);
@@ -109,7 +109,7 @@ public class Core4Problem extends Problem {
 		this.add(blank1);
 		this.add(numText);
 		this.add(blank2);
-		this.add(blankNum);
+		this.add(blankAnswer);
 		
 		this.add(wholeNum);
 		this.add(bar1);

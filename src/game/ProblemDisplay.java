@@ -21,7 +21,7 @@ import game.Problems.Core5Problem;
 
 @SuppressWarnings("serial")
 public class ProblemDisplay extends JDialog {
-	public static final int HEIGHT = 500;
+	public static final int HEIGHT = 200;
 	public static final int WIDTH = 500;
 	private Numpad pad;
 	private Problem problem;
@@ -30,20 +30,20 @@ public class ProblemDisplay extends JDialog {
 		setName("Problem");
 		setTitle("Problem");
 		setSize(WIDTH, HEIGHT);
+		setResizable(false);
 		this.setLayout(new GridLayout(0,2));
 		pad = new Numpad(this);
+		add(pad);
 		try {
 			makeQuestion();
 		} catch (ZeroDenomException e) {
 			System.out.println(e.getMessage());
 		}
-		add(pad);
-		add(problem);
 	}
 	
 	public void makeQuestion() throws ZeroDenomException{
 		Random rand = new Random();
-		int question = 2;	//TODO: Change back to rand.nextInt(6) + 1
+		int question = rand.nextInt(6) + 1;	//TODO: Change back to rand.nextInt(6) + 1
 		switch(question){
 			case 1: setProblem(new Core1Problem());
 					break;
@@ -56,14 +56,17 @@ public class ProblemDisplay extends JDialog {
 			case 5: setProblem(new Core4Problem());
 					break;
 			case 6: setProblem(new Core5Problem());
-					break;
 		}
+		problem.setAnswer(0);
 		pad.setKeypadEnabled(problem.involvesKeypad());
 		System.out.println(problem + " " + problem.getExpectedAnswer()); // TODO: Remove
 	}
 	
 	public void setProblem(Problem problem){
+		if(this.problem != null)
+			this.remove(this.problem);
 		this.problem = problem;
+		this.add(problem);
 	}
 	
 	public Problem getProblem(){
@@ -75,6 +78,7 @@ public class ProblemDisplay extends JDialog {
 	}
 	
 	public class Numpad extends JPanel{
+		public final static int ANSWER_MAX_CHARS = 4;
 		
 		private LinkedList<KeypadButton> buttons = new LinkedList<KeypadButton>();
 		private ProblemDisplay display;
@@ -93,10 +97,12 @@ public class ProblemDisplay extends JDialog {
 		
 		public void updateAnswer(){
 			problem.setAnswer(answer);
-			//answerText.setText(Integer.toString(answer));
 		}
 		
 		public void buttonPressed(int pressed){
+			if(answer / (int)Math.pow(10, ANSWER_MAX_CHARS - 1) > 0) {
+				return;
+			}
 			answer = answer * 10 + pressed;
 			updateAnswer();
 		}
@@ -140,7 +146,6 @@ public class ProblemDisplay extends JDialog {
 					clearAnswer();
 					updateAnswer();
 				} else if(name.equals("Submit")){	// Submit
-					//display.getProblem().setAnswer(answer);
 					clearAnswer();
 					Game.checkAnswer(problem);
 					updateAnswer();
