@@ -17,7 +17,8 @@ import game.ZeroDenomException;
 
 @SuppressWarnings("serial")
 public class Core2Problem extends Problem {
-
+	public JComboBox equality;
+	
 	public Core2Problem() throws ZeroDenomException {
 		super();
 		
@@ -68,7 +69,7 @@ public class Core2Problem extends Problem {
 		bar1.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		bar1.setFont(new Font("Arial", 0, 25));
 		bar1.setEditable(false);
-		JComboBox equality = new JComboBox();
+		equality = new JComboBox();
 		equality.addItem("<");
 		equality.addItem("=");
 		equality.addItem(">");
