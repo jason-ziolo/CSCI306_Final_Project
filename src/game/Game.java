@@ -70,8 +70,6 @@ public class Game extends JFrame{
 		display.newDisplay();
 	}
 	
-	
-	
 	private JMenuBar mainJMenuBar() {
 		JMenuBar bar = new JMenuBar();
 		JMenu menu = new JMenu("File");

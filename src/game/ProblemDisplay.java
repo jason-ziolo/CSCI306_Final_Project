@@ -43,7 +43,7 @@ public class ProblemDisplay extends JDialog {
 	
 	public void makeQuestion() throws ZeroDenomException{
 		Random rand = new Random();
-		int question = rand.nextInt(6) + 1;	//TODO: Change back to rand.nextInt(6) + 1
+		int question = 2;// rand.nextInt(6) + 1;	//TODO: Change back to rand.nextInt(6) + 1
 		switch(question){
 			case 1: setProblem(new Core1Problem());
 					break;

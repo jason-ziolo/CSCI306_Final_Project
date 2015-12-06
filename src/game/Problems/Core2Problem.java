@@ -1,7 +1,12 @@
 package game.Problems;
 
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -11,6 +16,8 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
 import game.Fraction;
+import game.Game;
+import game.KeypadButton;
 import game.Player;
 import game.Problem;
 import game.ZeroDenomException;
@@ -73,6 +80,7 @@ public class Core2Problem extends Problem {
 		equality.addItem("<");
 		equality.addItem("=");
 		equality.addItem(">");
+		equality.addItemListener(new DropdownListener());
 		equality.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		equality.setFont(new Font("Arial", 0, 25));
 		JTextField bar2 = new JTextField("____");
@@ -107,6 +115,22 @@ public class Core2Problem extends Problem {
 		this.add(den2Text);
 	}
 
+	public class DropdownListener implements ItemListener {
+		public void itemStateChanged(ItemEvent e) {
+			String test = (String) e.getItem();
+			switch(test) {
+			case "<": 
+				setAnswer(0);
+				break;
+			case "=":
+				setAnswer(1);
+				break;
+			case ">":
+				setAnswer(2);
+			}
+		}
+	}
+	
 	@Override
 	public void advanceComputer(LinkedList<Player> players) {
 		players.get(2).move();
