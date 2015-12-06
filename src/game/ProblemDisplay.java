@@ -43,7 +43,7 @@ public class ProblemDisplay extends JDialog {
 	
 	public void makeQuestion() throws ZeroDenomException{
 		Random rand = new Random();
-		int question = 2;	//TODO: Change back to rand.nextInt(6) + 1
+		int question = 5;	//TODO: Change back to rand.nextInt(6) + 1
 		switch(question){
 			case 1: setProblem(new Core1Problem());
 					break;
@@ -141,6 +141,10 @@ public class ProblemDisplay extends JDialog {
 					updateAnswer();
 				} else if(name.equals("Submit")){	// Submit
 					//display.getProblem().setAnswer(answer);
+					if (problem instanceof Core2Problem) {
+						answer = ((Core2Problem) problem).equality.getSelectedIndex();
+						updateAnswer();
+					}
 					clearAnswer();
 					Game.checkAnswer(problem);
 					updateAnswer();
