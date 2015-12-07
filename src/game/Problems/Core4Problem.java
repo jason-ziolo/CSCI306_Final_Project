@@ -22,16 +22,17 @@ public class Core4Problem extends Problem {
 	private int scalar;
 	
 	public Core4Problem() throws ZeroDenomException {
+		/* 
+		 * For clarification: this problem does NOT involve a whole number at all
+		 * This problem tests the scalar multiplication of a fraction.
+		 */
 		super();
 		Random rand = new Random();
 		int den = rand.nextInt(12) + 1;
 		int num = rand.nextInt(den) + 1;
 		scalar = rand.nextInt(5) + 1; // scalar is saved, so it may be drawn later
-		fractions.add(new Fraction(num, den));
-		fractions.add(new Fraction(num*scalar, den));
-		MixedNumber mixed = new MixedNumber(num, den, scalar); // Not sure if this is what was meant
-		//expectedAnswer = num*scalar;
-		expectedAnswer = num + (den*scalar); // Also think this is what the expected answer should be
+		expectedAnswer = num*scalar;
+		//expectedAnswer = num + (den*scalar); // Also think this is what the expected answer should be
 		
 		this.setLayout(new GridLayout(0,4));
 		JTextField blank1 = new JTextField("");
@@ -40,7 +41,7 @@ public class Core4Problem extends Problem {
 		blank1.setBorder(BorderFactory.createEmptyBorder());
 		blank1.setEditable(false);
 		
-		JTextField numText = new JTextField(String.valueOf(mixed.getNumerator()));
+		JTextField numText = new JTextField(String.valueOf(num));
 		numText.setHorizontalAlignment(numText.CENTER);
 		numText.setFont(new Font("Arial", 0, 25));
 		numText.setBorder(BorderFactory.createEmptyBorder());
@@ -58,11 +59,11 @@ public class Core4Problem extends Problem {
 		blankAnswer.setBorder(BorderFactory.createEmptyBorder());
 		blankAnswer.setEditable(false);
 		
-		JTextField wholeNum = new JTextField(String.valueOf(mixed.getWholeNumber()));
-		wholeNum.setHorizontalAlignment(wholeNum.CENTER);
-		wholeNum.setFont(new Font("Arial", 0, 25));
-		wholeNum.setBorder(BorderFactory.createEmptyBorder());
-		wholeNum.setEditable(false);
+		JTextField scalarText = new JTextField(String.valueOf(scalar) + " *");
+		scalarText.setHorizontalAlignment(scalarText.CENTER);
+		scalarText.setFont(new Font("Arial", 0, 25));
+		scalarText.setBorder(BorderFactory.createEmptyBorder());
+		scalarText.setEditable(false);
 		
 		JTextField bar1 = new JTextField("____");
 		bar1.setHorizontalAlignment(bar1.CENTER);
@@ -88,7 +89,7 @@ public class Core4Problem extends Problem {
 		blank3.setBorder(BorderFactory.createEmptyBorder());
 		blank3.setEditable(false);
 		
-		JTextField denText = new JTextField(String.valueOf(mixed.getDenominator()));
+		JTextField denText = new JTextField(String.valueOf(den));
 		denText.setHorizontalAlignment(denText.CENTER);
 		denText.setFont(new Font("Arial", 0, 25));
 		denText.setBorder(BorderFactory.createEmptyBorder());
@@ -111,7 +112,7 @@ public class Core4Problem extends Problem {
 		this.add(blank2);
 		this.add(blankAnswer);
 		
-		this.add(wholeNum);
+		this.add(scalarText);
 		this.add(bar1);
 		this.add(equals);
 		this.add(bar2);

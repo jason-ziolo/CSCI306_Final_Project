@@ -41,8 +41,6 @@ public class Core2Problem extends Problem {
 		int num2 = rand.nextInt(den2) + 1;
 		Fraction first = new Fraction(num, den);
 		Fraction second = new Fraction(num2, den2);
-		fractions.add(first);
-		fractions.add(second);
 		// int 0 corresponds to less than
 		// int 1 corresponds to equal to
 		// int 2 corresponds to greater than
