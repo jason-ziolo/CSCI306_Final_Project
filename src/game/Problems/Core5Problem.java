@@ -26,9 +26,6 @@ public class Core5Problem extends Problem {
 		Fraction base100 = new Fraction(num2, den2);
 		Fraction result = new Fraction(num2 + 10*num, den2);
 		this.expectedAnswer = result.getNumerator();
-		fractions.add(base10);
-		fractions.add(base100);
-		fractions.add(result); // will add answer, but it will not be shown (only denominator)
 		
 		this.setVisible(true);
 		this.setSize(50, 50);

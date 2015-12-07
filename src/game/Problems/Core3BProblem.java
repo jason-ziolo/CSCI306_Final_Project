@@ -42,9 +42,6 @@ public class Core3BProblem extends Problem {
 			RHS = new Fraction(num2, den);
 		}
 		this.expectedAnswer = Math.abs(num2 - num);
-		fractions.add(LHS);
-		fractions.add(RHS);
-		fractions.add(new Fraction(this.expectedAnswer, den)); // will add answer, but it will not be shown (only denominator)
 		
 		this.setLayout(new GridLayout(0, 5));
 		JTextField numText = new JTextField(String.valueOf(LHS.getNumerator()));

@@ -28,8 +28,6 @@ public class Core1Problem extends Problem {
 		int den = rand.nextInt(12) + 1;
 		int num = rand.nextInt(den) + 1;
 		int scalar = rand.nextInt(4) + 1;
-		fractions.add(new Fraction(num, den));
-		fractions.add(new Fraction(num*scalar, den*scalar));
 		expectedAnswer = num*scalar;
 		
 		this.setLayout(new GridLayout(0, 3));

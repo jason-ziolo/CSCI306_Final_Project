@@ -14,7 +14,6 @@ import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
 public abstract class Problem extends JPanel{
-	protected LinkedList<Fraction> fractions = new LinkedList<Fraction>();
 	protected int answer = -1; // this will never be -1 for an actual problem
 	protected int expectedAnswer;
 	protected JTextField blankAnswer;
