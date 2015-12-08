@@ -1,0 +1,463 @@
+commit 24e2f0d6d43902feb5f679f376e4703486341244
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Mon Dec 7 17:34:39 2015 -0700
+
+    Got rid of all warnings
+
+commit a1a0493066fc7d42433d622f4c30e2155880ca16
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Mon Dec 7 17:17:39 2015 -0700
+
+    Cleaned up the Core Problems and finished all functionality with the help of 4 man pair programming
+
+commit 96a4e0bd1948171d7a2b65da689017c46910dedf
+Merge: 79fa692 f51b984
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Mon Dec 7 16:08:17 2015 -0700
+
+    Merged
+
+commit 79fa6922b4f417a88fc93c1e2dc5b90dd577d44d
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Mon Dec 7 16:07:25 2015 -0700
+
+    Not sure what is changed
+
+commit f51b984cfd0cb7d4cc945ba3c61f56b68ebadf7c
+Author: Jason Ziolo <jziolo@mymail.mines.edu>
+Date:   Sun Dec 6 19:28:36 2015 -0700
+
+    Changed core4 to be correct, added core3C problem generation
+
+commit 960472686dc458df3c3640279cf5b6d7e7f7f990
+Author: jason-ziolo <jziolo@mymail.mines.edu>
+Date:   Sat Dec 5 19:58:55 2015 -0700
+
+    changed how core2 works to better tie in with things (avoiding modification of the problemdisplay class)
+
+commit 61b319ea96b5d5d5cbcfe86a6e2383eba1b18d23
+Merge: def7a0c bcc337d
+Author: jason-ziolo <jziolo@mymail.mines.edu>
+Date:   Sat Dec 5 19:53:14 2015 -0700
+
+    merged
+
+commit def7a0c095b6a955972c54a1fa3b814327ebf4e7
+Author: jason-ziolo <jziolo@mymail.mines.edu>
+Date:   Sat Dec 5 19:50:36 2015 -0700
+
+    finally figured out the 'not repainting' situation and fixed it (after generating the first problem, new problems weren't being added to the ProblemDisplay)
+
+commit bcc337d5da0f44cf8d3917be94f7f5b8b4af87d6
+Author: Max Mifkovic <maxmifkovic@gmail.com>
+Date:   Sat Dec 5 19:03:17 2015 -0700
+
+    Problem 2 ComboBox and submit work correctly. There is a null pointer exception showing up now that the keypad has its own class
+
+commit 5917f1ae0e0def59c8cbb3826ca06a92ef4593f1
+Author: jason-ziolo <jziolo@mymail.mines.edu>
+Date:   Sat Dec 5 18:24:54 2015 -0700
+
+    adding unincluded files
+
+commit 8dcc845dbc63e06a2c604525267044d807328880
+Author: jason-ziolo <jziolo@mymail.mines.edu>
+Date:   Sat Dec 5 18:24:22 2015 -0700
+
+    moved answer to show in the actual problem (still WIP for some), added KeypadButton class (for clarity), added clear button to keypad, changed keypad to be disabled for certain questions (like Core2)
+
+commit 4e71a4474384a5eff86f87511d37e0308fd67994
+Author: Max Mifkovic <maxmifkovic@gmail.com>
+Date:   Sat Dec 5 15:22:39 2015 -0700
+
+    Problems 1, 2, 3B, and 4 are displaying. Problem 2 needs button implementation to submit answer. Problems 3C and 5 need displaying. GUI still needs repainting.
+
+commit 35462434932b9f918da2333ec8ab5ccf910105cf
+Merge: 13c789d 17620b7
+Author: jason-ziolo <jziolo@mymail.mines.edu>
+Date:   Thu Dec 3 12:31:39 2015 -0700
+
+    Merge branch 'master' of https://github.com/jason-ziolo/Fraction_Fun
+
+commit 13c789de20bf9fd720214b32039c55142f3c28be
+Author: jason-ziolo <jziolo@mymail.mines.edu>
+Date:   Thu Dec 3 12:31:16 2015 -0700
+
+    worked on display of Core1Problem, will display if first problem generated, otherwise will not. Need to fix later
+
+commit 17620b7f4469cf6a057c4e778253b39d3ba05732
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Thu Dec 3 12:16:10 2015 -0700
+
+    Added a display to the answer you are submitting
+
+commit 2ef05719b630a514529fafeebbe1db8b79382571
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Thu Dec 3 12:04:02 2015 -0700
+
+    Made a submit button that allows the user to input a larger answer
+
+commit 605871e8cbf92112baf5596d5af7a50a2401a695
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Wed Dec 2 18:24:20 2015 -0700
+
+    All functionality is present. TODO: 1. Make  problem display for each core. 2. Make sure an answer can't be greater than 10 (or add more numbers). 3. Fill in which Cores the player should work on to improve their knowledge (final dialoge box). 4. Find a way to initialize the problem off the game board.
+
+commit 97ec645d7946fd31f6e854c3f0081aad9d88a1f1
+Merge: d21d453 1249ac8
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Wed Dec 2 18:09:25 2015 -0700
+
+    Got a lot of functionality done. Right now the problem doesn't change and there is no display to the problems. Once that is done, everything is all good
+
+commit d21d453f2b733228cf372a2d5cbde211e0dbb97d
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Wed Dec 2 14:55:30 2015 -0700
+
+    Commit before pulling
+
+commit 1249ac8226484c716a4d6144b49477432e0dabbe
+Author: jason-ziolo <jziolo@mymail.mines.edu>
+Date:   Tue Dec 1 18:12:09 2015 -0700
+
+    Tests are passing, OCP refactor of problem classes finished, adjusted size of board, because there are six problem types (and so there should be seven spaces)
+
+commit 0da9e06b70fd4229b725510dd712677da0fc4868
+Author: jason-ziolo <jziolo@mymail.mines.edu>
+Date:   Tue Dec 1 17:53:29 2015 -0700
+
+    finished problem generation
+
+commit 191b8d702c79176ad4d9067fdcf8bf2afd13d3c6
+Author: jason-ziolo <jziolo@mymail.mines.edu>
+Date:   Tue Dec 1 15:22:08 2015 -0700
+
+    small changes to abstract class functions
+
+commit 9e0a0379512229c722fcfeb4273aef9173772d6a
+Author: jason-ziolo <jziolo@mymail.mines.edu>
+Date:   Tue Dec 1 12:27:38 2015 -0700
+
+    Applied OCP principles, changing Problem to abstract class. Changed some Board functionality, WIP for tests
+
+commit 5e3fbcf0ef7b6de5c98cc18b22fc5f1afd5aba7e
+Merge: 4250413 704c840
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Tue Dec 1 11:48:21 2015 -0700
+
+    Merge branch 'master' of https://github.com/jason-ziolo/Fraction_Fun
+
+commit 4250413a7ce6239f8d0901aee892a1aebacc0d2d
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Tue Dec 1 11:47:51 2015 -0700
+
+    Added some more random stuff
+
+commit 704c8405187258df69c6616d6443328523b92dca
+Author: jason-ziolo <jziolo@mymail.mines.edu>
+Date:   Tue Dec 1 11:42:03 2015 -0700
+
+    updated equality methods in Fraction and MixedNumber
+
+commit cb35c2b69b5fe4f0335afc06cbbc23dcf80152b2
+Merge: 14a571f 5c97499
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Tue Dec 1 11:08:16 2015 -0700
+
+    Merge branch 'master' of https://github.com/jason-ziolo/Fraction_Fun
+
+commit 14a571f94cfa92973a540a462a1674746fc94393
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Tue Dec 1 11:08:06 2015 -0700
+
+    Got rid of warnings
+
+commit 5c974992911507b4469ad882c3b694c9598f897f
+Author: jason-ziolo <jziolo@mymail.mines.edu>
+Date:   Tue Dec 1 11:04:02 2015 -0700
+
+    all tests pass, exception handling fixed
+
+commit e116093672f43fe4aec7dd8dd66dc13836ca520a
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Tue Dec 1 10:53:49 2015 -0700
+
+    Added the GUI functionality
+
+commit 286de0f2dfe661e12c894d2e8f619cccd5d9e9fd
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Mon Nov 30 17:43:13 2015 -0700
+
+    Added some basic GUI stuff and a button that knows when it is pressed.
+
+commit f75eb68aef51be826312a907ba6bff0caf77fef6
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Mon Nov 30 16:37:30 2015 -0700
+
+    Made all failing tests pass except the ZeroDenominator exceptions. Those don't pass based on the way the tests are designed
+
+commit 663f850ba5790de8081f2fbe245bcb3b695de978
+Merge: a51b1a6 c81301e
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Mon Nov 30 13:52:15 2015 -0700
+
+    Merge branch 'master' of https://github.com/jason-ziolo/CSCI306_Final_Project
+
+commit a51b1a62524cf7e718c5a70f657f338da8d8380f
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Mon Nov 30 13:49:29 2015 -0700
+
+    Changed the ignore to get rid of Thumb.db
+
+commit c81301ec30c2df6415f1d63e22f078e6e89d800c
+Merge: 5403c21 5f08470
+Author: Max Mifkovic <maxmifkovic@gmail.com>
+Date:   Tue Nov 24 21:00:59 2015 -0700
+
+    Finished Merge
+
+commit 5403c21606ced2d0066b706e9be54b971471832c
+Author: Max Mifkovic <maxmifkovic@gmail.com>
+Date:   Tue Nov 24 20:53:17 2015 -0700
+
+    Commit before pull
+
+commit 5f084705264f338039f36a838687f3988de68624
+Author: jason-ziolo <jziolo@mymail.mines.edu>
+Date:   Tue Nov 24 20:27:13 2015 -0700
+
+    finished core3c, core4 failing tests. removed some unnecessary functions. tweaked core5
+
+commit 03eb42f2ba4d8bc3b41015a5cae17b7c80c20756
+Author: Max Mifkovic <maxmifkovic@gmail.com>
+Date:   Tue Nov 24 18:58:41 2015 -0700
+
+    Failing tests for cores 1 and 3b
+
+commit 670ca1147f0705b3abcd6a2ffb1a3b286c04c0c8
+Author: syoshiha <syoshiha@mymail.mines.edu>
+Date:   Tue Nov 24 15:17:53 2015 -0700
+
+    TestCore5
+
+commit 563db190375e2dc187082489793b6e04bb1461d7
+Author: syoshiha <syoshiha@mymail.mines.edu>
+Date:   Tue Nov 24 14:59:15 2015 -0700
+
+    TestCore2 edit
+
+commit 7cc5c4ad76c95f844c65b4af70896c29765ecf1a
+Author: syoshiha <syoshiha@mymail.mines.edu>
+Date:   Tue Nov 24 14:57:32 2015 -0700
+
+    TestCore2 test
+
+commit a8cb6cbf504dd8774ccd4815b58b0a95b47ab7bf
+Merge: 50aa530 f3e4ec8
+Author: syoshiha <syoshiha@mymail.mines.edu>
+Date:   Tue Nov 24 12:27:19 2015 -0700
+
+    Merge branch 'master' of https://github.com/jason-ziolo/Fraction_Fun
+
+commit f3e4ec88a3abba7af167b420fff2b2391e9923a8
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Tue Nov 24 12:26:26 2015 -0700
+
+    Wrote the gameEndsRight test
+
+commit 50aa5305a5c636ef75d9e16d1af80339ccb17e8e
+Merge: efe0a5e 4bb86f3
+Author: syoshiha <syoshiha@mymail.mines.edu>
+Date:   Tue Nov 24 12:25:55 2015 -0700
+
+    Merge brdflsadfjl;ksdfnch 'master' of https://github.com/jason-ziolo/Fraction_Fun
+    	src/tests/FailingTests.java
+    
+    :w2
+    :wq
+    :wq
+    Fraction core2Fraction1 = new Fraction(1,2);
+    		Fraction core2Fraction2 = new Fraction(3,4);
+    				assertTrue(core2Fraction1.getNumerator() /
+    				core2Fraction1.getDenominator()
+    								==
+    								core2Fraction2.getNumerator()
+    								/
+    								core2Fraction2.getDenominator());Fraction
+    								core2Fraction1
+    								= new
+    								Fraction(1,2);
+    										Fraction
+    										core2Fraction2
+    										=
+    										new
+    										Fraction(3,4);
+    												assertTrue(core2Fraction1.getNumerator()
+    												/
+    												core2Fraction1.getDenominator()
+    																==
+    																core2Fraction2.getNumerator()
+    																/
+    													w:wq
+    									sadsare2Fraction2.getDenominator());
+
+commit efe0a5e2a5b81951063f0a1d264bf44a47801309
+Author: syoshiha <syoshiha@mymail.mines.edu>
+Date:   Tue Nov 24 12:22:38 2015 -0700
+
+    working on TestCore2
+
+commit 4bb86f3ae9c6513109e96ee5e98d23cbbc77f51e
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Tue Nov 24 12:20:34 2015 -0700
+
+    Added Problem class
+
+commit e2188b1c2af5e0d3f7f38a46c791fe081d1cadd0
+Merge: de0676b f6a7f27
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Tue Nov 24 12:19:33 2015 -0700
+
+    Merge https://github.com/jason-ziolo/CSCI306_Final_Project
+
+commit de0676b955a6be46bc6832957fccb485fa511825
+Merge: e66ea1c d13ce86
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Tue Nov 24 12:19:10 2015 -0700
+
+    Fixed how the fractions are organized
+
+commit f6a7f27ffd5f8292df2f1f8361acbd4944a35990
+Author: jason-ziolo <jziolo@mymail.mines.edu>
+Date:   Tue Nov 24 12:18:38 2015 -0700
+
+    Changed fraction fields to protected, added subclass MixedNumber
+
+commit d13ce8663f88328b1ca43b9e327b928db6b929f9
+Merge: 04b7e01 6737dc7
+Author: jason-ziolo <jziolo@mymail.mines.edu>
+Date:   Tue Nov 24 12:12:15 2015 -0700
+
+    Merge branch 'master' of https://github.com/jason-ziolo/Fraction_Fun
+
+commit 04b7e01b704f8a76b831d47f47e54e57d8d24c36
+Author: jason-ziolo <jziolo@mymail.mines.edu>
+Date:   Tue Nov 24 12:12:04 2015 -0700
+
+    updated Fraction class to have getters/setters, wrote failing tests for divbyzero exception
+
+commit e66ea1ca2bcf5a2939ec63e94a6e70341ec032aa
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Tue Nov 24 12:10:39 2015 -0700
+
+    Finished Player Movement failing tests
+
+commit 6737dc7f27141716361014c21ee98b13cb14cdba
+Author: syoshiha <syoshiha@mymail.mines.edu>
+Date:   Tue Nov 24 12:07:31 2015 -0700
+
+    Added Core3b, Core3c, Core4, and Core5 to FractionType
+
+commit 4b59c690d210a0a614b537f57fe9b1c0a47adafa
+Author: jason-ziolo <jziolo@mymail.mines.edu>
+Date:   Tue Nov 24 12:04:46 2015 -0700
+
+    added skeleton functions to fraction class
+
+commit 51f006bf000f86b814350d9f15932330a22b9a15
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Tue Nov 24 11:57:59 2015 -0700
+
+    Reinit
+
+commit 5dab3da362a91bebbd53ee113ba51a68834ca4be
+Merge: ceea655 bdd3f7d
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Tue Nov 24 11:55:20 2015 -0700
+
+    Merge https://github.com/jason-ziolo/CSCI306_Final_Project
+
+commit ceea655d0d64d897a600932468521815179e926c
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Tue Nov 24 11:54:14 2015 -0700
+
+    Reinit
+
+commit bdd3f7d93cc3cc9fdb54b3190d8a929b0f421a35
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Tue Nov 24 11:48:32 2015 -0700
+
+    More testing
+
+commit fbe9d2c063b2157eb5fd81dbe40be2fdabe0bf7a
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Tue Nov 24 11:43:58 2015 -0700
+
+    Doing some tests
+
+commit f84b98fb7dfec7003d72b023ad5267692df11c74
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Tue Nov 24 11:34:24 2015 -0700
+
+    Added more classes
+
+commit 2e17cc4b5394bed352876b16aea634e37c980fa6
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Tue Nov 24 11:31:23 2015 -0700
+
+    Started worked on tests, Note this code doesn't compile
+
+commit 5f1865b3a19cae8f7441478c59c713fce361e05a
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Tue Nov 24 11:04:48 2015 -0700
+
+    Initialized the java project
+
+commit c244948dcffdf516b07d6af6def40b7a4a88b4b9
+Author: jason-ziolo <jziolo@mymail.mines.edu>
+Date:   Tue Nov 24 10:53:41 2015 -0700
+
+    added .gitignore
+
+commit f2f98dd517b22b9121f47e22a924cdf4892cf324
+Author: jason-ziolo <jziolo@mymail.mines.edu>
+Date:   Fri Nov 20 17:23:31 2015 -0700
+
+    updated project planning doc
+
+commit a83bb7c8dc5512b1e71d48cb1f8e2b4556322135
+Author: jason-ziolo <jziolo@mymail.mines.edu>
+Date:   Fri Nov 20 16:26:41 2015 -0700
+
+    added drawing powerpoint
+
+commit 6957d405b424c60fd28a3300474544ee971e2f37
+Author: Max Mifkovic <maxmifkovic@gmail.com>
+Date:   Fri Nov 20 14:52:28 2015 -0700
+
+    Added Planning Document. Please read through and make any changes necessary.
+
+commit 94d6f1cda438e3bfe34b9a26af4e5fe55b6d77b3
+Merge: 6129cfd ae88846
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Thu Nov 19 12:18:32 2015 -0700
+
+    Merge https://github.com/jason-ziolo/CSCI306_Final_Project
+
+commit 6129cfdd231b991d14b359e58ab21a2eac222c1b
+Author: Henry Dau <hdau@mymail.mines.edu>
+Date:   Thu Nov 19 12:17:57 2015 -0700
+
+    Initialization
+
+commit ae88846c2306f49eb6e19aeb228dc043f40da808
+Author: jason-ziolo <jziolo@mymail.mines.edu>
+Date:   Thu Nov 19 11:12:01 2015 -0700
+
+    Update README.md
+
+commit bb9c34dd5d6c5e3a179e7e9bb5fa070b7079b8d6
+Author: jason-ziolo <jziolo@mymail.mines.edu>
+Date:   Thu Nov 19 11:10:34 2015 -0700
+
+    Initial commit
