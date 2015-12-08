@@ -36,6 +36,7 @@ public class ProblemDisplay extends JDialog {
 		add(pad);
 		try {
 			makeQuestion();
+			problem.doQuestionMark();
 		} catch (ZeroDenomException e) {
 			System.out.println(e.getMessage());
 		}
@@ -43,8 +44,8 @@ public class ProblemDisplay extends JDialog {
 	
 	public void makeQuestion() throws ZeroDenomException{
 		Random rand = new Random();
-		//int question = 2;
-		int question = rand.nextInt(6) + 1;	//TODO: Change back to rand.nextInt(6) + 1
+		//int question = 6;
+		int question = rand.nextInt(6) + 1;
 		switch(question){
 			case 1: setProblem(new Core1Problem());
 					break;
@@ -60,7 +61,7 @@ public class ProblemDisplay extends JDialog {
 		}
 		problem.setAnswer(0);
 		pad.setKeypadEnabled(problem.involvesKeypad());
-		System.out.println(problem + " " + problem.getExpectedAnswer()); // TODO: Remove
+		//System.out.println(problem + " " + problem.getExpectedAnswer()); // TODO: Remove
 	}
 	
 	public void setProblem(Problem problem){
@@ -79,7 +80,7 @@ public class ProblemDisplay extends JDialog {
 	}
 	
 	public class Numpad extends JPanel{
-		public final static int ANSWER_MAX_CHARS = 4;
+		public final static int ANSWER_MAX_CHARS = 3;
 		
 		private LinkedList<KeypadButton> buttons = new LinkedList<KeypadButton>();
 		private ProblemDisplay display;
@@ -114,11 +115,19 @@ public class ProblemDisplay extends JDialog {
 		
 		public void initializeButtons(){
 			// Buttons corresponding to the numbers
-			for (int i = 0; i < 10; i++){
-				KeypadButton button = new KeypadButton(i, Integer.toString(i));
-				button.addActionListener(new ButtonListener());
-				buttons.add(button);
+			for (int i = 0; i < 3; i++){
+				for (int j = 0; j < 3; j++){
+					int num = (7 - i * 3 + j);
+					KeypadButton button = new KeypadButton(num, Integer.toString(num));
+					button.addActionListener(new ButtonListener());
+					buttons.add(button);
+				}
 			}
+			
+			KeypadButton button0 = new KeypadButton(0, Integer.toString(0));
+			button0.addActionListener(new ButtonListener());
+			buttons.add(button0);
+			
 			// Submit button
 			String name = "Submit";
 			KeypadButton button = new KeypadButton(0, name);
@@ -150,6 +159,7 @@ public class ProblemDisplay extends JDialog {
 					clearAnswer();
 					Game.checkAnswer(problem);
 					updateAnswer();
+					problem.doQuestionMark();
 					noDisplay();
 				} else {
 					buttonPressed(((KeypadButton) e.getSource()).getNumValue());

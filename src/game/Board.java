@@ -35,10 +35,8 @@ public class Board extends JPanel{
 	public void movePlayer(){
 		if (currentProblem.isCorrect()){
 			players.getFirst().move();
-			JOptionPane.showMessageDialog(null, "Correct!");
 		} else {
 			currentProblem.advanceComputer(players);
-			JOptionPane.showMessageDialog(null, "Incorrect: Expected answer was " + currentProblem.getExpectedAnswer() + ".");
 		}
 		repaint();
 	}

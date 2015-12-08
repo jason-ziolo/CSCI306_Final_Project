@@ -1,5 +1,7 @@
 package game.Problems;
 
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -27,10 +29,25 @@ public class Core5Problem extends Problem {
 		Fraction result = new Fraction(num2 + 10*num, den2);
 		this.expectedAnswer = result.getNumerator();
 		
+		this.setLayout(new GridLayout(0, 5));
+		this.makeField(String.valueOf(num));
+		this.makeField("");
+		this.makeField(String.valueOf(num2));
+		this.makeField("");
+		blankAnswer = this.makeAnswer();
+		this.makeField("____");
+		this.makeField("+");
+		this.makeField("____");
+		this.makeField("=");
+		this.makeField("____");
+		this.makeField(String.valueOf(den));
+		this.makeField("");
+		this.makeField(String.valueOf(den2));
+		this.makeField("");
+		this.makeField(String.valueOf(result.getDenominator()));
+		
 		this.setVisible(true);
 		this.setSize(50, 50);
-		this.add(new JTextField("Problem 5"));
-		this.setBorder(new TitledBorder(new EtchedBorder(), "Core 5 Problem"));
 	}
 
 	@Override

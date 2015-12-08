@@ -1,5 +1,7 @@
 package game;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.util.LinkedList;
 
 import javax.swing.JPanel;
@@ -35,6 +37,25 @@ public abstract class Problem extends JPanel{
 		return false;
 	}
 	
+	protected void makeField(String in) {
+		JTextField newField = new JTextField(in);
+		newField.setHorizontalAlignment(newField.CENTER);
+		newField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		newField.setFont(new Font("Arial", 0, 25));
+		newField.setEditable(false);
+		this.add(newField);
+	}
+	
+	protected JTextField makeAnswer() {
+		JTextField newField = new JTextField();
+		newField.setHorizontalAlignment(newField.CENTER);
+		newField.setBorder(javax.swing.BorderFactory.createLineBorder(Color.BLUE));
+		newField.setFont(new Font("Arial", 0, 25));
+		newField.setEditable(false);
+		this.add(newField);
+		return newField;
+	}
+	
 	public void setAnswer(int answer) {
 		this.answer = answer;
 		if(involvesKeypad) {
@@ -42,8 +63,19 @@ public abstract class Problem extends JPanel{
 			this.blankAnswer.repaint();
 		}
 	}
-
+	
+	public void doQuestionMark() {
+		if(involvesKeypad) {
+			this.blankAnswer.setText("?");
+			this.blankAnswer.repaint();
+		}
+	}
+	
 	public int getExpectedAnswer() {
 		return expectedAnswer;
+	}
+	
+	public String getExpectedAnswerStr() {
+		return String.valueOf(getExpectedAnswer());
 	}
 }

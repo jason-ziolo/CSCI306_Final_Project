@@ -25,6 +25,7 @@ public class Game extends JFrame{
 		setName("Fraction Fun!");
 		setTitle("Fraction Fun!");
 		setSize(SIZE + PADDING, SIZE * 2 / 3 + PADDING);
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
@@ -67,6 +68,11 @@ public class Game extends JFrame{
 	public static void checkAnswer(Problem problem){
 		board.setCurrentProblem(problem);
 		board.movePlayer();
+		if (board.getCurrentProblem().isCorrect()){
+			JOptionPane.showMessageDialog(board, "Correct!");
+		} else {
+			JOptionPane.showMessageDialog(board, "Incorrect: Expected answer was " + board.getCurrentProblem().getExpectedAnswerStr() + ".");
+		}
 		display.newDisplay();
 	}
 	
