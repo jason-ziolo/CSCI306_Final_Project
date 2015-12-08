@@ -1,17 +1,9 @@
 package game.Problems;
 
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.LinkedList;
 import java.util.Random;
 
-import javax.swing.BorderFactory;
-import javax.swing.JTextField;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.TitledBorder;
-
-import game.Fraction;
-import game.MixedNumber;
 import game.Player;
 import game.Problem;
 import game.ZeroDenomException;

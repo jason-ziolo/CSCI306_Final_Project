@@ -1,30 +1,22 @@
 package game.Problems;
 
-import java.awt.Component;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.LinkedList;
 import java.util.Random;
 
 import javax.swing.JComboBox;
-import javax.swing.JTextField;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.TitledBorder;
 
 import game.Fraction;
-import game.Game;
-import game.KeypadButton;
 import game.Player;
 import game.Problem;
 import game.ZeroDenomException;
 
 @SuppressWarnings("serial")
 public class Core2Problem extends Problem {
-	public JComboBox equality;
+	public JComboBox<String> equality;
 	
 	public Core2Problem() throws ZeroDenomException {
 		super();
@@ -58,7 +50,7 @@ public class Core2Problem extends Problem {
 		this.makeField("");
 		this.makeField(String.valueOf(num2));
 		this.makeField("____");
-		equality = new JComboBox();
+		equality = new JComboBox<String>();
 		equality.addItem("<");
 		equality.addItem("=");
 		equality.addItem(">");

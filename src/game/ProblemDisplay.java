@@ -7,10 +7,8 @@ import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import java.util.Random;
 
-import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 import game.Problems.Core1Problem;
 import game.Problems.Core2Problem;
@@ -61,7 +59,6 @@ public class ProblemDisplay extends JDialog {
 		}
 		problem.setAnswer(0);
 		pad.setKeypadEnabled(problem.involvesKeypad());
-		//System.out.println(problem + " " + problem.getExpectedAnswer()); // TODO: Remove
 	}
 	
 	public void setProblem(Problem problem){
@@ -83,6 +80,7 @@ public class ProblemDisplay extends JDialog {
 		public final static int ANSWER_MAX_CHARS = 3;
 		
 		private LinkedList<KeypadButton> buttons = new LinkedList<KeypadButton>();
+		@SuppressWarnings("unused")
 		private ProblemDisplay display;
 		
 		private int answer = 0;

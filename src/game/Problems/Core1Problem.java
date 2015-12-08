@@ -1,22 +1,11 @@
 package game.Problems;
 
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.LinkedList;
 import java.util.Random;
-
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.TitledBorder;
-
-import game.Fraction;
 import game.Player;
 import game.Problem;
-import game.ProblemDisplay;
 import game.ZeroDenomException;
-import javafx.scene.shape.Line;
 
 @SuppressWarnings("serial")
 public class Core1Problem extends Problem {

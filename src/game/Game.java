@@ -17,9 +17,6 @@ public class Game extends JFrame{
 	public static final int SIZE = 500;
 	public static final int PADDING = 100;
 
-	//TODO: determine if this should stay
-	//private LinkedList<ProblemType> problemType;	//This is here to avoid a lot of if statements down the line
-	
 	public Game(){
 		this.setJMenuBar(mainJMenuBar());
 		setName("Fraction Fun!");
@@ -52,14 +49,15 @@ public class Game extends JFrame{
 		if (winner.equals(Board.getPlayers().get(0))){
 			message = "You win the game!";
 		} else {
-			message = "The computer wins. You have want to brush up on the following Cores: ";
+			message = "The computer wins. You have want to brush up on the following cores: ";
 			if (winner.equals(Board.getPlayers().get(1))){
 				message += "1 and 5.";
 			} else if(winner.equals(Board.getPlayers().get(2))){
-				message += "2 and 3C";
+				message += "2 and 3C.";
 			} else if(winner.equals(Board.getPlayers().get(3))){
-				message += "3B and 4";
+				message += "3B and 4.";
 			}
+			message += '\n' + "Visit the following website for more information: http://www.free-test-online.com/ccss/grade4/grade4_fractions.html";
 		}
 		JOptionPane.showMessageDialog(board, message);
 		System.exit(1);

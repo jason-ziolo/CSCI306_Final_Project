@@ -37,6 +37,7 @@ public abstract class Problem extends JPanel{
 		return false;
 	}
 	
+	@SuppressWarnings("static-access")
 	protected void makeField(String in) {
 		JTextField newField = new JTextField(in);
 		newField.setHorizontalAlignment(newField.CENTER);
@@ -46,6 +47,7 @@ public abstract class Problem extends JPanel{
 		this.add(newField);
 	}
 	
+	@SuppressWarnings("static-access")
 	protected JTextField makeAnswer() {
 		JTextField newField = new JTextField();
 		newField.setHorizontalAlignment(newField.CENTER);

@@ -128,8 +128,4 @@ public class Fraction {
 		this.setNumerator(this.getNumerator()*wholeNumber);
 		return this;
 	}
-	
-	public Fraction multiply(int factor) {
-		return null; // TODO	
-	}
 }
